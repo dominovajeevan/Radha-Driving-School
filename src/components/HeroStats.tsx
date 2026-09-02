@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Calendar, Star, MessageSquareQuote, Clock, CheckCircle2, XCircle } from 'lucide-react';
-import { getBusinessStatus, type BusinessStatus } from '../utils/businessStatus';
+import { Calendar, Star, MessageSquareQuote, Award, CheckCircle2, XCircle } from 'lucide-react';
+import { getBusinessStatus, type BusinessStatus, RATING_VALUE, REVIEWS_COUNT, YEARS_EXPERIENCE, ESTABLISHED_YEAR } from '../utils/businessStatus';
 import { ScrollReveal } from './ScrollReveal';
 
 export const HeroStats: React.FC = () => {
@@ -15,33 +15,32 @@ export const HeroStats: React.FC = () => {
 
   const stats = [
     {
-      value: "2013",
-      label: "Established",
-      sublabel: "Established 2013",
-      icon: Calendar,
-      highlight: false
-    },
-    {
-      value: "4.4★",
-      label: "Customer Rating",
-      sublabel: "High Satisfaction",
+      value: RATING_VALUE,
+      label: "Rating",
+      sublabel: "Highest Rated in Adyar",
       icon: Star,
       highlight: true
     },
     {
-      value: "48+",
-      label: "Customer Reviews",
+      value: REVIEWS_COUNT,
+      label: "Customer Ratings",
       sublabel: "Verified Feedback",
       icon: MessageSquareQuote,
       highlight: false
     },
     {
-      value: status.isOpen ? "8:00 PM" : "Closed",
-      label: status.isOpen ? "Open Until 8:00 PM" : status.text,
-      sublabel: status.nextChangeText,
-      icon: Clock,
-      isStatus: true,
-      isOpen: status.isOpen
+      value: `${YEARS_EXPERIENCE} Years`,
+      label: "Years in Business",
+      sublabel: "Experienced Guidance",
+      icon: Award,
+      highlight: false
+    },
+    {
+      value: ESTABLISHED_YEAR,
+      label: "Established",
+      sublabel: "Serving Since 1998",
+      icon: Calendar,
+      highlight: false
     }
   ];
 
@@ -55,38 +54,38 @@ export const HeroStats: React.FC = () => {
               <div
                 className={`relative overflow-hidden rounded-2xl p-4 sm:p-6 transition-all duration-300 transform hover:-translate-y-1 ${
                   stat.highlight
-                    ? 'bg-[#4B2E5E] text-[#FAF7F2] border-2 border-[#C9A86A] shadow-glow-purple'
-                    : 'bg-white border border-[#E8DEC8] hover:border-[#C9A86A]/60 shadow-celestial-card'
+                    ? 'bg-gradient-to-br from-[#064E3B] to-[#022C22] text-white border-2 border-[#D97706] shadow-glow-emerald'
+                    : 'bg-white border border-[#E8DEC8] hover:border-[#D97706]/60 shadow-card'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <div className={`p-2.5 rounded-xl ${stat.highlight ? 'bg-[#C9A86A]/20 text-[#E7D4A8]' : 'bg-[#F3EFE7] text-[#4B2E5E]'}`}>
+                  <div className={`p-2.5 rounded-xl ${stat.highlight ? 'bg-[#D97706]/20 text-[#F59E0B]' : 'bg-[#F4EFE6] text-[#064E3B]'}`}>
                     <Icon className="w-5 h-5" />
                   </div>
 
-                  {stat.isStatus && (
-                    <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${
-                      stat.isOpen ? 'bg-emerald-500/15 text-emerald-700 border border-emerald-500/30' : 'bg-rose-500/15 text-rose-700 border border-rose-500/30'
+                  {idx === 0 && (
+                    <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold ${
+                      status.isOpen ? 'bg-emerald-500/15 text-emerald-700 border border-emerald-500/30' : 'bg-amber-500/15 text-amber-800 border border-amber-500/30'
                     }`}>
-                      {stat.isOpen ? <CheckCircle2 className="w-3 h-3" /> : <XCircle className="w-3 h-3" />}
-                      {stat.isOpen ? 'Active' : 'Offline'}
+                      {status.isOpen ? <CheckCircle2 className="w-3 h-3 text-emerald-600" /> : <XCircle className="w-3 h-3 text-amber-600" />}
+                      {status.isOpen ? 'Open Now' : 'Closed Now'}
                     </span>
                   )}
                 </div>
 
                 <div className="mt-2">
                   <span className={`block text-2xl sm:text-3xl font-extrabold tracking-tight ${
-                    stat.highlight ? 'text-[#C9A86A]' : 'text-[#4B2E5E]'
+                    stat.highlight ? 'text-[#F59E0B]' : 'text-[#064E3B]'
                   }`}>
                     {stat.value}
                   </span>
-                  <span className={`block text-xs sm:text-sm font-semibold mt-0.5 ${
-                    stat.highlight ? 'text-[#FAF7F2]' : 'text-[#27232A]'
+                  <span className={`block text-xs sm:text-sm font-bold mt-0.5 ${
+                    stat.highlight ? 'text-white' : 'text-[#111827]'
                   }`}>
                     {stat.label}
                   </span>
                   <span className={`block text-[11px] mt-0.5 truncate ${
-                    stat.highlight ? 'text-[#E7D4A8]' : 'text-[#665E6E]'
+                    stat.highlight ? 'text-[#F4EFE6]/90' : 'text-gray-500'
                   }`}>
                     {stat.sublabel}
                   </span>
@@ -99,3 +98,4 @@ export const HeroStats: React.FC = () => {
     </section>
   );
 };
+

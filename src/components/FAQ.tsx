@@ -9,38 +9,38 @@ export const FAQ: React.FC = () => {
   const faqs: FAQItem[] = [
     {
       id: "faq-1",
-      question: "What are the various modes of payment accepted?",
-      answer: "Payment can be made via Cash or UPI only."
+      question: "What are the payment options available?",
+      answer: "Payment can be made using Visa, MasterCard, RuPay, Net Banking, UPI or Cash."
     },
     {
       id: "faq-2",
-      question: "Where is SRI SARAVANAVELS DRIVING SCHOOL located?",
-      answer: "No 3, PH Road, Iyyankulam, Paruthipattu, Avadi, Chennai 71."
+      question: "What is the nearest landmark?",
+      answer: "Radha Driving School is located near Adyar Signal on L B Road, Adyar, Chennai-600020."
     },
     {
       id: "faq-3",
-      question: "What are the operating hours?",
-      answer: "Monday to Saturday: 9:00 AM – 8:00 PM. Sunday: Closed."
+      question: "What are the working hours?",
+      answer: "Monday to Saturday: 6:00 AM – 8:00 PM. Sunday: 9:00 AM – 12:00 PM."
     },
     {
       id: "faq-4",
-      question: "Does the school provide motor training?",
-      answer: "Yes. Motor training is one of the primary services provided by the school."
+      question: "Are Lady Instructors available for women learners?",
+      answer: "Yes. Dedicated lady instructors are available for women learners seeking personalized, patient 1-on-1 instruction."
     },
     {
       id: "faq-5",
-      question: "Is training available for women?",
-      answer: "Yes. The supplied business information lists training for women learners."
+      question: "Do you offer simulator motor training?",
+      answer: "Yes. We offer simulator motor training to help learners build initial vehicle control and confidence in a safe virtual environment."
     },
     {
       id: "faq-6",
-      question: "How much do the driving classes cost?",
-      answer: "Pricing should be confirmed directly with the driving school. We display 'Ask for Price' rather than inventing unverified course fees."
+      question: "Does the school provide two-wheeler motor training?",
+      answer: "Yes. Motor training for two-wheelers (motorcycles and scooters) is offered alongside four-wheeler car driving training."
     },
     {
       id: "faq-7",
       question: "Does the school provide driving license consultation?",
-      answer: "Yes. Driving license consultation is listed among the services offered."
+      answer: "Yes. Driving license consultation and RTO process guidance are included among our key services."
     }
   ];
 
@@ -49,20 +49,20 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-[#FAF7F2] bg-celestial-pattern relative">
+    <section id="faq" className="py-20 lg:py-28 bg-[#FAF8F5] bg-radha-pattern relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <ScrollReveal>
           <div className="text-center mb-16 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#4B2E5E] bg-[#F3EFE7] px-3.5 py-1 rounded-full border border-[#C9A86A]/40 shadow-sm">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#064E3B] bg-[#F4EFE6] px-4 py-1.5 rounded-full border border-[#D97706]/40 shadow-sm inline-block">
               COMMON QUESTIONS
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#4B2E5E] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#064E3B] tracking-tight">
               Frequently Asked <span className="gradient-text-gold">Questions</span>
             </h2>
-            <p className="text-[#665E6E] text-base">
-              Everything you need to know about SRI SARAVANAVELS DRIVING SCHOOL.
+            <p className="text-gray-600 text-base">
+              Everything you need to know about Radha Driving School in Adyar, Chennai.
             </p>
           </div>
         </ScrollReveal>
@@ -74,10 +74,10 @@ export const FAQ: React.FC = () => {
             return (
               <ScrollReveal key={faq.id} delay={idx * 50}>
                 <div
-                  className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                  className={`rounded-2xl border-2 transition-all duration-200 overflow-hidden ${
                     isOpen
-                      ? 'bg-white border-[#C9A86A] shadow-glow-gold'
-                      : 'bg-white hover:bg-[#FAF7F2] border-[#E8DEC8]'
+                      ? 'bg-white border-[#D97706] shadow-glow-gold'
+                      : 'bg-white hover:bg-[#FAF8F5] border-[#E8DEC8]'
                   }`}
                 >
                 <button
@@ -85,18 +85,18 @@ export const FAQ: React.FC = () => {
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4"
                 >
                   <div className="flex items-center gap-3">
-                    <HelpCircle className={`w-5 h-5 shrink-0 ${isOpen ? 'text-[#C9A86A]' : 'text-[#72548C]'}`} />
-                    <span className="text-base sm:text-lg font-bold text-[#4B2E5E] leading-snug">
+                    <HelpCircle className={`w-5 h-5 shrink-0 ${isOpen ? 'text-[#D97706]' : 'text-[#064E3B]'}`} />
+                    <span className="text-base sm:text-lg font-extrabold text-[#064E3B] leading-snug">
                       {faq.question}
                     </span>
                   </div>
-                  <div className={`p-1.5 rounded-lg bg-[#F3EFE7] text-[#4B2E5E] transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#4B2E5E] bg-[#E7D4A8]/60' : ''}`}>
+                  <div className={`p-1.5 rounded-lg bg-[#F4EFE6] text-[#064E3B] transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#064E3B] bg-[#D97706]/20' : ''}`}>
                     <ChevronDown className="w-5 h-5" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-[#27232A]/85 border-t border-[#E8DEC8] leading-relaxed animate-fadeIn">
+                  <div className="px-6 pb-6 pt-2 text-sm sm:text-base text-gray-700 font-medium border-t border-[#E8DEC8] leading-relaxed animate-fadeIn">
                     <p className="pl-8">{faq.answer}</p>
                   </div>
                 )}
@@ -110,3 +110,4 @@ export const FAQ: React.FC = () => {
     </section>
   );
 };
+

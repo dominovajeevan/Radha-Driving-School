@@ -1,57 +1,57 @@
 import React from 'react';
-import { MapPin, Phone, ExternalLink } from 'lucide-react';
-import { MAPS_DIRECTIONS_URL, PHONE_NUMBER, TEL_LINK, BUSINESS_NAME_EN, BUSINESS_NAME_TA } from '../utils/businessStatus';
+import { MapPin, Phone, MessageSquare, ExternalLink } from 'lucide-react';
+import { MAPS_DIRECTIONS_URL, DISPLAY_PHONE, TEL_LINK, WHATSAPP_LINK, BUSINESS_NAME_EN, BUSINESS_NAME_TA, FULL_ADDRESS } from '../utils/businessStatus';
 import { ScrollReveal } from './ScrollReveal';
 
 export const ContactCTA: React.FC = () => {
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-[#F3EFE7] border-t border-[#E8DEC8] relative overflow-hidden">
+    <section id="contact" className="py-20 lg:py-28 bg-[#F4EFE6] border-t border-[#E8DEC8] relative overflow-hidden">
       
-      {/* Decorative Celestial Glow Effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#C9A86A]/15 blur-[120px] pointer-events-none rounded-full" />
+      {/* Decorative Glow Effect */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#D97706]/15 blur-[120px] pointer-events-none rounded-full" />
 
       <ScrollReveal className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
-        <div className="bg-white border-2 border-[#C9A86A]/60 rounded-3xl p-8 sm:p-14 shadow-celestial-card backdrop-blur-md">
+        <div className="bg-white border-2 border-[#D97706]/60 rounded-3xl p-8 sm:p-14 shadow-card backdrop-blur-md">
           
-          <span className="text-xs font-bold uppercase tracking-widest text-[#4B2E5E] bg-[#F3EFE7] px-3.5 py-1.5 rounded-full border border-[#C9A86A]/40 mb-4 inline-block">
-            DIRECT BUSINESS CONTACT
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#064E3B] bg-[#F4EFE6] px-4 py-1.5 rounded-full border border-[#D97706]/40 mb-4 inline-block">
+            CONTACT RADHA DRIVING SCHOOL
           </span>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#4B2E5E] tracking-tight leading-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#064E3B] tracking-tight leading-tight mb-4">
             Get in <span className="gradient-text-gold">Touch</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-[#27232A]/80 max-w-2xl mx-auto mb-8 font-medium">
-            Have questions about our driving training or services? Contact SRI SARAVANAVELS DRIVING SCHOOL directly.
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-8 font-medium">
+            Have questions about our motor training or driving license services in Adyar, Chennai? Contact Radha Driving School directly.
           </p>
 
-          <div className="bg-[#FAF7F2] p-6 rounded-2xl border border-[#E8DEC8] mb-8 text-left max-w-xl mx-auto space-y-4">
+          <div className="bg-[#FAF8F5] p-6 rounded-2xl border border-[#E8DEC8] mb-8 text-left max-w-xl mx-auto space-y-4">
             
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#4B2E5E] text-[#C9A86A] flex items-center justify-center shrink-0 shadow-sm">
-                <Phone className="w-5 h-5 fill-[#C9A86A]" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#064E3B] to-[#047857] text-[#F59E0B] flex items-center justify-center shrink-0 shadow-sm border border-[#D97706]/40">
+                <Phone className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-xs font-bold text-[#665E6E] uppercase tracking-wider block">Direct Telephone Contact</span>
+                <span className="text-xs font-extrabold text-gray-500 uppercase tracking-wider block">Direct Phone Contact</span>
                 <a
                   href={TEL_LINK}
-                  className="text-2xl font-black text-[#4B2E5E] hover:text-[#C9A86A] tracking-wider transition-colors block mt-0.5"
+                  className="text-2xl font-extrabold text-[#064E3B] hover:text-[#D97706] tracking-wider transition-colors block mt-0.5"
                 >
-                  {PHONE_NUMBER}
+                  {DISPLAY_PHONE}
                 </a>
               </div>
             </div>
 
             <div className="flex items-start gap-4 pt-3 border-t border-[#E8DEC8]">
-              <div className="w-10 h-10 rounded-xl bg-[#4B2E5E] text-[#C9A86A] flex items-center justify-center shrink-0 shadow-sm">
-                <MapPin className="w-5 h-5 fill-[#C9A86A]" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#064E3B] to-[#047857] text-[#F59E0B] flex items-center justify-center shrink-0 shadow-sm border border-[#D97706]/40">
+                <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-xs font-bold text-[#665E6E] uppercase tracking-wider block">Official Location</span>
-                <span className="text-sm font-bold text-[#4B2E5E] block">{BUSINESS_NAME_EN} ({BUSINESS_NAME_TA})</span>
-                <span className="text-xs text-[#27232A]/80 block mt-0.5">
-                  No 3, PH Road, Iyyankulam, Paruthipattu, Avadi, Chennai 71
+                <span className="text-xs font-extrabold text-gray-500 uppercase tracking-wider block">Official Location</span>
+                <span className="text-sm font-extrabold text-[#064E3B] block">{BUSINESS_NAME_EN} ({BUSINESS_NAME_TA})</span>
+                <span className="text-xs text-gray-700 font-bold block mt-0.5">
+                  {FULL_ADDRESS}
                 </span>
               </div>
             </div>
@@ -63,10 +63,10 @@ export const ContactCTA: React.FC = () => {
             {/* Call Now Button */}
             <a
               href={TEL_LINK}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#4B2E5E] to-[#674080] hover:from-[#3A2349] hover:to-[#55346B] text-[#FAF7F2] font-bold text-base px-8 py-4 rounded-xl shadow-glow-purple transition-all active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#064E3B] hover:bg-[#047857] text-white font-extrabold text-base px-8 py-4 rounded-xl shadow-glow-emerald transition-all active:scale-95"
             >
-              <Phone className="w-5 h-5 text-[#C9A86A] fill-[#C9A86A]" />
-              <span>Call Now ({PHONE_NUMBER})</span>
+              <Phone className="w-5 h-5 text-[#F59E0B]" />
+              <span>Call Now</span>
             </a>
 
             {/* Get Directions Button */}
@@ -74,17 +74,28 @@ export const ContactCTA: React.FC = () => {
               href={MAPS_DIRECTIONS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#C9A86A] hover:bg-[#B89657] text-[#27232A] font-bold text-base px-8 py-4 rounded-xl shadow-glow-gold transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#D97706] to-[#B45309] hover:from-[#B45309] hover:to-[#92400E] text-white font-extrabold text-base px-8 py-4 rounded-xl shadow-glow-gold transition-all"
             >
-              <MapPin className="w-5 h-5 fill-[#27232A]" />
+              <MapPin className="w-5 h-5" />
               <span>Get Directions</span>
               <ExternalLink className="w-4 h-4" />
             </a>
 
+            {/* WhatsApp Button */}
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1ebd59] text-white font-extrabold text-base px-8 py-4 rounded-xl shadow-sm transition-all"
+            >
+              <MessageSquare className="w-5 h-5" />
+              <span>WhatsApp</span>
+            </a>
+
           </div>
 
-          <p className="text-xs text-[#665E6E] mt-6">
-            No 3, PH Road, Iyyankulam, Paruthipattu, Avadi, Chennai 71 • Open Mon–Sat 9:00 AM – 8:00 PM
+          <p className="text-xs text-gray-500 font-semibold mt-6">
+            Adyar, Chennai • Mon–Sat: 6:00 AM – 8:00 PM | Sun: 9:00 AM – 12:00 PM
           </p>
 
         </div>
@@ -93,3 +104,4 @@ export const ContactCTA: React.FC = () => {
     </section>
   );
 };
+

@@ -13,11 +13,11 @@ export const Courses: React.FC = () => {
       recommendedFor: 'Complete beginners starting from scratch',
       priceLabel: 'Ask for Price',
       features: [
-        'Basic vehicle controls',
+        'Basic vehicle controls & dashboard familiarization',
         'Steering and braking fundamentals',
-        'Gear and clutch familiarization',
-        'Starting and stopping techniques',
-        'Road awareness & signal basics',
+        'Gear clutch coordination & smooth acceleration',
+        'Starting, stopping & hill hold techniques',
+        'Road signs, signals & awareness basics',
         'Practical guided driving sessions'
       ]
     },
@@ -28,46 +28,46 @@ export const Courses: React.FC = () => {
       recommendedFor: 'Learners preparing for daily road traffic',
       priceLabel: 'Ask for Price',
       features: [
-        'Practical road training in traffic',
+        'Practical road training in Chennai traffic',
         'Traffic awareness & lane discipline',
-        'Vehicle handling under guidance',
-        'Turning, reversing & maneuvering',
-        'Parking practice (Parallel & Perpendicular)',
+        'Vehicle handling under expert guidance',
+        'Turning, reversing & tight curve maneuvering',
+        'Parallel & perpendicular parking practice',
         'Safe driving habits & defensive driving'
       ]
     },
     {
       id: 'refresher-training',
       title: 'Refresher Training',
-      subtitle: 'For existing drivers who want to improve',
+      subtitle: 'For existing drivers',
       recommendedFor: 'License holders returning to driving',
       priceLabel: 'Ask for Price',
       features: [
-        'Confidence building on busy roads',
+        'Confidence building on busy Adyar roads',
         'Vehicle control polish & gear timing',
-        'Real-world Chennai road practice',
+        'Real-world Chennai road navigation',
         'Tight space parking & slope driving',
-        'Heavy traffic handling skills',
+        'Heavy traffic handling & night driving basics',
         'Safe driving techniques & safety tips'
       ]
     }
   ];
 
   return (
-    <section id="courses" className="py-20 lg:py-28 bg-[#FAF7F2] bg-celestial-pattern relative">
+    <section id="courses" className="py-20 lg:py-28 bg-[#FAF8F5] bg-radha-pattern relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#4B2E5E] bg-[#F3EFE7] px-3.5 py-1 rounded-full border border-[#C9A86A]/40 shadow-sm">
-              TAILORED INSTRUCTION TIERS
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#064E3B] bg-[#F4EFE6] px-4 py-1.5 rounded-full border border-[#D97706]/40 shadow-sm inline-block">
+              TAILORED MODULES
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#4B2E5E] tracking-tight">
-              Driving Classes & <span className="gradient-text-gold">Training</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#064E3B] tracking-tight">
+              Driving Courses & <span className="gradient-text-gold">Modules</span>
             </h2>
-            <p className="text-[#665E6E] text-base sm:text-lg">
-              Choose the training that fits your learning needs.
+            <p className="text-gray-600 text-base sm:text-lg">
+              Practical instruction designed around your learning pace and experience level.
             </p>
           </div>
         </ScrollReveal>
@@ -81,32 +81,32 @@ export const Courses: React.FC = () => {
                 <div
                   className={`relative rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 w-full ${
                     isFeatured
-                      ? 'bg-[#4B2E5E] text-[#FAF7F2] border-2 border-[#C9A86A] shadow-glow-purple scale-102'
-                      : 'bg-white text-[#27232A] border border-[#E8DEC8] hover:border-[#C9A86A]/60 shadow-celestial-card'
+                      ? 'bg-gradient-to-br from-[#064E3B] to-[#022C22] text-white border-2 border-[#D97706] shadow-glow-emerald scale-102'
+                      : 'bg-white text-[#111827] border-2 border-[#E8DEC8] hover:border-[#D97706]/60 shadow-card'
                   }`}
                 >
                 {isFeatured && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#C9A86A] text-[#27232A] text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md flex items-center gap-1">
-                    <Sparkles className="w-3.5 h-3.5 fill-[#27232A]" />
-                    POPULAR TRAINING LEVEL
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D97706] text-white text-[11px] font-extrabold uppercase tracking-wider px-4 py-1 rounded-full shadow-md flex items-center gap-1">
+                    <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
+                    MOST POPULAR COURSE
                   </div>
                 )}
 
                 <div>
                   {/* Card Title & Subtitle */}
                   <div className="mb-6">
-                    <span className={`text-xs font-bold uppercase tracking-wider block mb-1 ${
-                      isFeatured ? 'text-[#E7D4A8]' : 'text-[#72548C]'
+                    <span className={`text-xs font-extrabold uppercase tracking-wider block mb-1 ${
+                      isFeatured ? 'text-[#F59E0B]' : 'text-[#047857]'
                     }`}>
                       {course.subtitle}
                     </span>
-                    <h3 className={`text-2xl font-bold mb-2 ${
-                      isFeatured ? 'text-white' : 'text-[#4B2E5E]'
+                    <h3 className={`text-2xl font-extrabold mb-2 ${
+                      isFeatured ? 'text-white' : 'text-[#064E3B]'
                     }`}>
                       {course.title}
                     </h3>
                     <p className={`text-xs italic ${
-                      isFeatured ? 'text-[#FAF7F2]/80' : 'text-[#665E6E]'
+                      isFeatured ? 'text-gray-300' : 'text-gray-500'
                     }`}>
                       Recommended for: {course.recommendedFor}
                     </p>
@@ -115,36 +115,36 @@ export const Courses: React.FC = () => {
                   {/* Price Banner */}
                   <div className={`p-4 rounded-xl mb-6 flex items-center justify-between border ${
                     isFeatured 
-                      ? 'bg-[#FAF7F2]/10 border-[#C9A86A]/40' 
-                      : 'bg-[#F3EFE7] border-[#E8DEC8]'
+                      ? 'bg-white/10 border-[#D97706]/40' 
+                      : 'bg-[#F4EFE6] border-[#E8DEC8]'
                   }`}>
                     <div>
-                      <span className={`text-[11px] uppercase font-semibold block ${
-                        isFeatured ? 'text-[#FAF7F2]/70' : 'text-[#665E6E]'
+                      <span className={`text-[11px] uppercase font-bold block ${
+                        isFeatured ? 'text-gray-300' : 'text-gray-500'
                       }`}>Training Fee</span>
-                      <span className={`text-xl font-bold ${
-                        isFeatured ? 'text-[#C9A86A]' : 'text-[#4B2E5E]'
+                      <span className={`text-xl font-extrabold ${
+                        isFeatured ? 'text-[#F59E0B]' : 'text-[#064E3B]'
                       }`}>{course.priceLabel}</span>
                     </div>
-                    <span className={`text-[10px] px-2.5 py-1 rounded ${
-                      isFeatured ? 'bg-white/10 text-white' : 'bg-white text-[#4B2E5E] border border-[#E8DEC8]'
-                    }`}>Paruthippattu Branch</span>
+                    <span className={`text-[10px] font-extrabold px-2.5 py-1 rounded ${
+                      isFeatured ? 'bg-white/10 text-white' : 'bg-white text-[#064E3B] border border-[#E8DEC8]'
+                    }`}>Adyar Branch</span>
                   </div>
 
                   {/* Feature Checklist */}
                   <div className="space-y-3 mb-8">
-                    <span className={`text-xs font-semibold uppercase tracking-wider block mb-2 ${
-                      isFeatured ? 'text-[#E7D4A8]' : 'text-[#4B2E5E]'
+                    <span className={`text-xs font-extrabold uppercase tracking-wider block mb-2 ${
+                      isFeatured ? 'text-[#F59E0B]' : 'text-[#064E3B]'
                     }`}>
                       Included Modules:
                     </span>
                     {course.features.map((feature, fIdx) => (
                       <div key={fIdx} className="flex items-start gap-2.5">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${
-                          isFeatured ? 'text-[#C9A86A]' : 'text-[#72548C]'
+                          isFeatured ? 'text-[#F59E0B]' : 'text-[#D97706]'
                         }`} />
-                        <span className={`text-xs sm:text-sm ${
-                          isFeatured ? 'text-[#FAF7F2]' : 'text-[#27232A]'
+                        <span className={`text-xs sm:text-sm font-medium ${
+                          isFeatured ? 'text-white' : 'text-gray-700'
                         }`}>{feature}</span>
                       </div>
                     ))}
@@ -156,14 +156,14 @@ export const Courses: React.FC = () => {
                   href={MAPS_DIRECTIONS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all ${
+                  className={`w-full py-3.5 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 transition-all ${
                     isFeatured
-                      ? 'bg-[#C9A86A] hover:bg-[#B89657] text-[#27232A] shadow-glow-gold'
-                      : 'bg-[#4B2E5E] hover:bg-[#674080] text-[#FAF7F2] shadow-sm'
+                      ? 'bg-gradient-to-r from-[#D97706] to-[#B45309] hover:from-[#B45309] hover:to-[#92400E] text-white shadow-glow-gold'
+                      : 'bg-[#064E3B] hover:bg-[#047857] text-white shadow-sm'
                   }`}
                 >
                   <MapPin className="w-4 h-4" />
-                  <span>Get Directions To School</span>
+                  <span>Get Directions to School</span>
                 </a>
 
               </div>
@@ -176,3 +176,4 @@ export const Courses: React.FC = () => {
     </section>
   );
 };
+

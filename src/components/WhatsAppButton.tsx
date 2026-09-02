@@ -9,20 +9,20 @@ export const WhatsAppButton: React.FC = () => {
       
       {/* Tooltip */}
       {showTooltip && (
-        <div className="bg-[#4B2E5E] text-[#FAF7F2] text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg border border-[#C9A86A]/50 animate-fadeIn whitespace-nowrap hidden sm:block">
+        <div className="bg-[#064E3B] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg shadow-lg border border-[#D97706]/50 animate-fadeIn whitespace-nowrap hidden sm:block">
           Chat on WhatsApp
         </div>
       )}
 
-      {/* Button */}
+      {/* Floating Action Button */}
       <a
         href={WHATSAPP_LINK}
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
-        aria-label="Chat on WhatsApp with SRI SARAVANAVELS DRIVING SCHOOL"
-        className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white ring-4 ring-[#C9A86A]/30 group"
+        aria-label="Chat on WhatsApp with RADHA DRIVING SCHOOL"
+        className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white ring-4 ring-[#D97706]/30 group"
       >
         <svg
           className="w-7 h-7 fill-current"
@@ -34,3 +34,4 @@ export const WhatsAppButton: React.FC = () => {
     </div>
   );
 };
+

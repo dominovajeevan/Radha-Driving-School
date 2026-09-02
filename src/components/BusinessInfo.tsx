@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MapPin, Calendar, Star, Car, Users, Clock, CreditCard, Building2, Phone } from 'lucide-react';
-import { getBusinessStatus, type BusinessStatus, PHONE_NUMBER, TEL_LINK, BUSINESS_NAME_EN, BUSINESS_NAME_TA } from '../utils/businessStatus';
+import { getBusinessStatus, type BusinessStatus, DISPLAY_PHONE, TEL_LINK, BUSINESS_NAME_EN, BUSINESS_NAME_TA, FULL_ADDRESS, LANDMARK, ESTABLISHED_YEAR, RATING_VALUE, REVIEWS_COUNT, YEARS_EXPERIENCE } from '../utils/businessStatus';
 import { ScrollReveal } from './ScrollReveal';
 
 export const BusinessInfo: React.FC = () => {
@@ -12,30 +12,30 @@ export const BusinessInfo: React.FC = () => {
   }, []);
 
   const schedule = [
-    { day: "Monday", hours: "9:00 AM – 8:00 PM" },
-    { day: "Tuesday", hours: "9:00 AM – 8:00 PM" },
-    { day: "Wednesday", hours: "9:00 AM – 8:00 PM" },
-    { day: "Thursday", hours: "9:00 AM – 8:00 PM" },
-    { day: "Friday", hours: "9:00 AM – 8:00 PM" },
-    { day: "Saturday", hours: "9:00 AM – 8:00 PM" },
-    { day: "Sunday", hours: "Closed" },
+    { day: "Monday", hours: "6:00 AM – 8:00 PM" },
+    { day: "Tuesday", hours: "6:00 AM – 8:00 PM" },
+    { day: "Wednesday", hours: "6:00 AM – 8:00 PM" },
+    { day: "Thursday", hours: "6:00 AM – 8:00 PM" },
+    { day: "Friday", hours: "6:00 AM – 8:00 PM" },
+    { day: "Saturday", hours: "6:00 AM – 8:00 PM" },
+    { day: "Sunday", hours: "9:00 AM – 12:00 PM" },
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#FAF7F2] bg-celestial-pattern relative">
+    <section className="py-20 lg:py-28 bg-[#FAF8F5] bg-radha-pattern relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#4B2E5E] bg-[#F3EFE7] px-3 py-1 rounded-full border border-[#C9A86A]/40 shadow-sm">
-              VERIFIED ACADEMY DATA
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#064E3B] bg-[#F4EFE6] px-4 py-1.5 rounded-full border border-[#D97706]/40 shadow-sm inline-block">
+              OFFICIAL BUSINESS DATA
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#4B2E5E] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#064E3B] tracking-tight">
               Business Information & <span className="gradient-text-gold">Hours</span>
             </h2>
-            <p className="text-[#665E6E] text-base sm:text-lg">
-              Essential operational details for SRI SARAVANAVELS DRIVING SCHOOL.
+            <p className="text-gray-600 text-base sm:text-lg">
+              Essential operational details for Radha Driving School in Adyar, Chennai.
             </p>
           </div>
         </ScrollReveal>
@@ -44,80 +44,82 @@ export const BusinessInfo: React.FC = () => {
           
           {/* Business Details Card */}
           <ScrollReveal delay={100} className="lg:col-span-6 flex">
-            <div className="bg-white border border-[#E8DEC8] hover:border-[#C9A86A] rounded-2xl p-6 sm:p-8 shadow-celestial-card flex flex-col justify-between w-full">
+            <div className="bg-white border-2 border-[#E8DEC8] hover:border-[#D97706] rounded-2xl p-6 sm:p-8 shadow-card flex flex-col justify-between w-full">
             <div>
               <div className="flex items-center gap-3 mb-6 pb-6 border-b border-[#E8DEC8]">
-                <div className="w-12 h-12 rounded-xl bg-[#4B2E5E] border border-[#C9A86A]/50 flex items-center justify-center text-[#C9A86A] shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#064E3B] to-[#047857] border border-[#D97706]/50 flex items-center justify-center text-[#F59E0B] shadow-sm">
                   <Building2 className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#4B2E5E]">{BUSINESS_NAME_EN}</h3>
-                  <span className="text-sm font-semibold text-[#72548C] block">{BUSINESS_NAME_TA}</span>
-                  <span className="text-xs text-[#C9A86A] font-bold">Paruthippattu, Avadi Branch</span>
+                  <h3 className="text-xl font-extrabold text-[#064E3B]">{BUSINESS_NAME_EN}</h3>
+                  <span className="text-sm font-bold text-[#047857] block">{BUSINESS_NAME_TA}</span>
+                  <span className="text-xs text-[#D97706] font-extrabold">Adyar, Chennai • Landmark: {LANDMARK}</span>
                 </div>
               </div>
 
               <div className="space-y-4">
                 
                 <div className="flex items-start gap-3.5">
-                  <MapPin className="w-5 h-5 text-[#C9A86A] shrink-0 mt-1" />
+                  <MapPin className="w-5 h-5 text-[#D97706] shrink-0 mt-1" />
                   <div>
-                    <span className="text-xs font-bold text-[#665E6E] uppercase tracking-wider block">Address</span>
-                    <span className="text-sm text-[#27232A] leading-snug block font-medium">
-                      No 3, PH Road, Iyyankulam, Paruthipattu, Avadi, Chennai 71
+                    <span className="text-xs font-extrabold text-gray-500 uppercase tracking-wider block">Address</span>
+                    <span className="text-sm text-[#111827] leading-snug block font-bold">
+                      {FULL_ADDRESS}
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3.5">
-                  <Phone className="w-5 h-5 text-[#C9A86A] shrink-0" />
+                  <Phone className="w-5 h-5 text-[#D97706] shrink-0" />
                   <div>
-                    <span className="text-xs font-bold text-[#665E6E] uppercase tracking-wider block">Phone Contact</span>
-                    <a href={TEL_LINK} className="text-base font-black text-[#4B2E5E] hover:text-[#C9A86A]">
-                      {PHONE_NUMBER}
+                    <span className="text-xs font-extrabold text-gray-500 uppercase tracking-wider block">Phone Contact</span>
+                    <a href={TEL_LINK} className="text-base font-extrabold text-[#064E3B] hover:text-[#D97706] transition-colors">
+                      {DISPLAY_PHONE}
                     </a>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 pt-2">
-                  <div className="flex items-center gap-3 bg-[#FAF7F2] p-3 rounded-xl border border-[#E8DEC8]">
-                    <Calendar className="w-4 h-4 text-[#C9A86A]" />
+                  <div className="flex items-center gap-3 bg-[#FAF8F5] p-3 rounded-xl border border-[#E8DEC8]">
+                    <Calendar className="w-4 h-4 text-[#D97706]" />
                     <div>
-                      <span className="text-[10px] text-[#665E6E] block font-semibold">Established</span>
-                      <span className="text-sm font-bold text-[#4B2E5E]">2013</span>
+                      <span className="text-[10px] text-gray-500 block font-bold">Established</span>
+                      <span className="text-sm font-extrabold text-[#064E3B]">{ESTABLISHED_YEAR} ({YEARS_EXPERIENCE} Yrs)</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 bg-[#FAF7F2] p-3 rounded-xl border border-[#E8DEC8]">
-                    <Star className="w-4 h-4 text-[#C9A86A] fill-[#C9A86A]" />
+                  <div className="flex items-center gap-3 bg-[#FAF8F5] p-3 rounded-xl border border-[#E8DEC8]">
+                    <Star className="w-4 h-4 text-[#D97706] fill-[#D97706]" />
                     <div>
-                      <span className="text-[10px] text-[#665E6E] block font-semibold">Rating</span>
-                      <span className="text-sm font-bold text-[#4B2E5E]">4.4 / 5 (48)</span>
+                      <span className="text-[10px] text-gray-500 block font-bold">Rating</span>
+                      <span className="text-sm font-extrabold text-[#064E3B]">{RATING_VALUE} / 5 ({REVIEWS_COUNT})</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 bg-[#FAF7F2] p-3 rounded-xl border border-[#E8DEC8]">
-                    <Car className="w-4 h-4 text-[#C9A86A]" />
+                  <div className="flex items-center gap-3 bg-[#FAF8F5] p-3 rounded-xl border border-[#E8DEC8]">
+                    <Car className="w-4 h-4 text-[#D97706]" />
                     <div>
-                      <span className="text-[10px] text-[#665E6E] block font-semibold">Specialization</span>
-                      <span className="text-xs font-bold text-[#4B2E5E]">Motor Training</span>
+                      <span className="text-[10px] text-gray-500 block font-bold">Specialization</span>
+                      <span className="text-xs font-extrabold text-[#064E3B]">Motor Training</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 bg-[#FAF7F2] p-3 rounded-xl border border-[#E8DEC8]">
-                    <Users className="w-4 h-4 text-[#C9A86A]" />
+                  <div className="flex items-center gap-3 bg-[#FAF8F5] p-3 rounded-xl border border-[#E8DEC8]">
+                    <Users className="w-4 h-4 text-[#D97706]" />
                     <div>
-                      <span className="text-[10px] text-[#665E6E] block font-semibold">Demographic</span>
-                      <span className="text-xs font-bold text-[#4B2E5E]">Male & Women</span>
+                      <span className="text-[10px] text-gray-500 block font-bold">Instructors</span>
+                      <span className="text-xs font-extrabold text-[#064E3B]">Lady & Male Instructors</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-2 flex items-start gap-3 bg-[#F3EFE7] p-3.5 rounded-xl border border-[#C9A86A]/40">
-                  <CreditCard className="w-5 h-5 text-[#C9A86A] shrink-0 mt-0.5" />
+                <div className="pt-2 flex items-start gap-3 bg-[#F4EFE6] p-4 rounded-xl border border-[#D97706]/40">
+                  <CreditCard className="w-5 h-5 text-[#D97706] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs font-bold text-[#4B2E5E] uppercase tracking-wider block">Accepted Payment Modes</span>
-                    <span className="text-xs text-[#27232A] font-semibold block mt-0.5">Payment can be made via Cash or UPI only.</span>
+                    <span className="text-xs font-extrabold text-[#064E3B] uppercase tracking-wider block">Accepted Payment Modes</span>
+                    <span className="text-xs text-gray-700 font-bold block mt-0.5">
+                      Multiple convenient payment options are available, including cards (Visa, MasterCard, RuPay), Net Banking, UPI and Cash.
+                    </span>
                   </div>
                 </div>
 
@@ -128,31 +130,31 @@ export const BusinessInfo: React.FC = () => {
 
           {/* Opening Hours Schedule Card */}
           <ScrollReveal delay={200} className="lg:col-span-6 flex">
-            <div className="bg-white border border-[#E8DEC8] hover:border-[#C9A86A] rounded-2xl p-6 sm:p-8 shadow-celestial-card flex flex-col justify-between w-full">
+            <div className="bg-white border-2 border-[#E8DEC8] hover:border-[#D97706] rounded-2xl p-6 sm:p-8 shadow-card flex flex-col justify-between w-full">
             <div>
               
-              {/* Header with Live Ticker */}
+              {/* Header */}
               <div className="flex items-center justify-between mb-6 pb-6 border-b border-[#E8DEC8]">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-[#4B2E5E] border border-[#C9A86A]/50 flex items-center justify-center text-[#C9A86A] shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#064E3B] to-[#047857] border border-[#D97706]/50 flex items-center justify-center text-[#F59E0B] shadow-sm">
                     <Clock className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-[#4B2E5E]">Opening Hours</h3>
-                    <span className="text-xs text-[#665E6E]">Weekly Training Schedule</span>
+                    <h3 className="text-2xl font-extrabold text-[#064E3B]">Operating Hours</h3>
+                    <span className="text-xs text-gray-500 font-medium">Monday – Sunday Timings</span>
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold ${
+                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold ${
                     status.isOpen 
-                      ? 'bg-emerald-500/15 text-emerald-700 border border-emerald-500/40' 
-                      : 'bg-rose-500/15 text-rose-700 border border-rose-500/40'
+                      ? 'bg-emerald-500/15 text-emerald-800 border border-emerald-500/40' 
+                      : 'bg-amber-500/15 text-amber-900 border border-amber-500/40'
                   }`}>
-                    <span className={`w-2 h-2 rounded-full ${status.isOpen ? 'bg-emerald-600 animate-ping' : 'bg-rose-600'}`} />
+                    <span className={`w-2 h-2 rounded-full ${status.isOpen ? 'bg-emerald-600 animate-ping' : 'bg-amber-600'}`} />
                     {status.isOpen ? 'OPEN NOW' : 'CLOSED NOW'}
                   </span>
-                  <span className="block text-[11px] text-[#4B2E5E] mt-1 font-bold">
+                  <span className="block text-[11px] text-[#064E3B] mt-1 font-bold">
                     {status.nextChangeText}
                   </span>
                 </div>
@@ -161,22 +163,23 @@ export const BusinessInfo: React.FC = () => {
               {/* Schedule List */}
               <div className="space-y-2.5">
                 {schedule.map((item, idx) => {
-                  const isToday = new Date().getDay() === (idx === 6 ? 0 : idx + 1);
+                  const todayDayIndex = new Date().getDay(); // 0 = Sun, 1 = Mon
+                  const isToday = todayDayIndex === (idx === 6 ? 0 : idx + 1);
                   return (
                     <div
                       key={idx}
                       className={`flex items-center justify-between p-3 rounded-xl transition-colors ${
                         isToday 
-                          ? 'bg-[#4B2E5E] text-[#FAF7F2] font-bold shadow-sm' 
-                          : 'bg-[#FAF7F2] border border-[#E8DEC8] text-[#27232A]'
+                          ? 'bg-[#064E3B] text-white font-extrabold shadow-sm' 
+                          : 'bg-[#FAF8F5] border border-[#E8DEC8] text-[#111827]'
                       }`}
                     >
                       <div className="flex items-center gap-2">
-                        {isToday && <span className="w-1.5 h-1.5 rounded-full bg-[#C9A86A]" />}
+                        {isToday && <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />}
                         <span className="text-sm">{item.day}</span>
-                        {isToday && <span className="text-[10px] uppercase font-bold text-[#27232A] bg-[#C9A86A] px-2 py-0.5 rounded">Today</span>}
+                        {isToday && <span className="text-[10px] uppercase font-extrabold text-[#064E3B] bg-[#F59E0B] px-2 py-0.5 rounded">Today</span>}
                       </div>
-                      <span className={`text-sm ${item.hours === 'Closed' ? 'text-rose-400 font-semibold' : isToday ? 'text-[#E7D4A8]' : 'text-[#4B2E5E] font-semibold'}`}>
+                      <span className={`text-sm font-bold ${isToday ? 'text-[#F59E0B]' : 'text-[#064E3B]'}`}>
                         {item.hours}
                       </span>
                     </div>
@@ -194,3 +197,4 @@ export const BusinessInfo: React.FC = () => {
     </section>
   );
 };
+

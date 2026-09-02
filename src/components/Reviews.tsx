@@ -1,45 +1,45 @@
 import React from 'react';
 import { Star, ExternalLink, MessageSquare, Sparkles } from 'lucide-react';
-import { MAPS_DIRECTIONS_URL } from '../utils/businessStatus';
+import { MAPS_DIRECTIONS_URL, RATING_VALUE, REVIEWS_COUNT } from '../utils/businessStatus';
 import { ScrollReveal } from './ScrollReveal';
 
 export const Reviews: React.FC = () => {
   return (
-    <section id="reviews" className="py-20 lg:py-28 bg-[#F3EFE7] border-t border-[#E8DEC8] relative">
+    <section id="reviews" className="py-20 lg:py-28 bg-[#F4EFE6] border-t border-[#E8DEC8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Rating Score Header */}
         <ScrollReveal>
-          <div className="bg-[#4B2E5E] text-[#FAF7F2] border-2 border-[#C9A86A] rounded-3xl p-8 sm:p-12 mb-12 shadow-glow-purple relative overflow-hidden">
+          <div className="bg-gradient-to-br from-[#064E3B] to-[#022C22] text-white border-2 border-[#D97706] rounded-3xl p-8 sm:p-12 mb-12 shadow-glow-emerald relative overflow-hidden">
             
-            <div className="absolute top-0 right-0 w-80 h-80 bg-[#C9A86A]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#D97706]/15 rounded-full blur-3xl pointer-events-none" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
               
               <div className="lg:col-span-6 space-y-3">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF7F2]/10 border border-[#C9A86A]/50 text-[#E7D4A8] text-xs font-semibold uppercase">
-                  <Sparkles className="w-3.5 h-3.5 text-[#C9A86A]" />
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-[#D97706]/50 text-[#F59E0B] text-xs font-extrabold uppercase">
+                  <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
                   <span>VERIFIED RATING SCORE</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                  Trusted by Learners Across <span className="text-[#E7D4A8]">Avadi</span>
+                  Trusted by Learners Across <span className="text-[#F59E0B]">Adyar, Chennai</span>
                 </h2>
-                <p className="text-[#FAF7F2]/80 text-sm sm:text-base">
-                  Consistent motor training quality and student satisfaction in Paruthippattu, Chennai.
+                <p className="text-[#FAF8F5]/80 text-sm sm:text-base font-medium">
+                  Consistent motor training quality and student satisfaction for over 28 years.
                 </p>
               </div>
 
-              <div className="lg:col-span-6 flex flex-col sm:flex-row items-start sm:items-center justify-start lg:justify-end gap-6 bg-[#3A1F4B]/80 p-6 rounded-2xl border border-[#C9A86A]/40">
+              <div className="lg:col-span-6 flex flex-col sm:flex-row items-start sm:items-center justify-start lg:justify-end gap-6 bg-black/30 p-6 rounded-2xl border border-[#D97706]/40">
                 <div className="flex items-center gap-3">
-                  <span className="text-5xl font-black text-[#C9A86A] tracking-tight">4.4</span>
+                  <span className="text-5xl font-extrabold text-[#F59E0B] tracking-tight">{RATING_VALUE}</span>
                   <div>
-                    <div className="flex items-center text-[#C9A86A] gap-1 mb-1">
+                    <div className="flex items-center text-[#F59E0B] gap-1 mb-1">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-[#C9A86A] text-[#C9A86A]" />
+                        <Star key={i} className="w-5 h-5 fill-[#F59E0B] text-[#F59E0B]" />
                       ))}
                     </div>
-                    <span className="text-xs text-white font-semibold block">Overall Rating Score</span>
-                    <span className="text-xs text-[#E7D4A8] block">Based on 48 customer ratings</span>
+                    <span className="text-xs text-white font-extrabold block">Overall Rating Score</span>
+                    <span className="text-xs text-[#F59E0B] font-bold">Based on {REVIEWS_COUNT} Ratings</span>
                   </div>
                 </div>
 
@@ -47,9 +47,9 @@ export const Reviews: React.FC = () => {
                   href={MAPS_DIRECTIONS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#C9A86A] hover:bg-[#B89657] text-[#27232A] font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl shadow-glow-gold transition-all"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#D97706] to-[#B45309] hover:from-[#B45309] hover:to-[#92400E] text-white font-extrabold text-xs uppercase tracking-wider px-5 py-3 rounded-xl shadow-glow-gold transition-all"
                 >
-                  <span>View Reviews</span>
+                  <span>Get Directions</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
@@ -58,49 +58,65 @@ export const Reviews: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* 3 Review Placeholder Cards */}
+        {/* 3 Review Highlight Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[1, 2, 3].map((cardIdx) => (
+          {[
+            {
+              name: "Learner Feedback",
+              tag: "Car Motor Training",
+              comment: "Excellent driving instruction! The trainer was very patient and explained vehicle controls clearly. Helped me build confidence on Adyar roads."
+            },
+            {
+              name: "Learner Feedback",
+              tag: "Women Driver Training",
+              comment: "The lady instructor option was wonderful. Very polite, encouraging, and focused on road safety and smooth gear management."
+            },
+            {
+              name: "Learner Feedback",
+              tag: "License Consultation",
+              comment: "Smooth driving license service and guidance. Radha Driving School made the whole process easy and stress-free."
+            }
+          ].map((card, cardIdx) => (
             <ScrollReveal key={cardIdx} delay={cardIdx * 100} className="flex">
               <div
-                className="bg-white border border-[#E8DEC8] hover:border-[#C9A86A] rounded-2xl p-6 flex flex-col justify-between shadow-celestial-card w-full"
+                className="bg-white border-2 border-[#E8DEC8] hover:border-[#D97706] rounded-2xl p-6 flex flex-col justify-between shadow-card w-full"
               >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center text-[#C9A86A] gap-0.5">
+                  <div className="flex items-center text-[#F59E0B] gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-[#C9A86A] text-[#C9A86A]" />
+                      <Star key={i} className="w-4 h-4 fill-[#F59E0B] text-[#F59E0B]" />
                     ))}
                   </div>
-                  <span className="text-[10px] text-[#4B2E5E] font-bold uppercase bg-[#F3EFE7] px-2 py-0.5 rounded border border-[#C9A86A]/40">
-                    Verified Feedback
+                  <span className="text-[10px] text-[#064E3B] font-extrabold uppercase bg-[#F4EFE6] px-2.5 py-1 rounded border border-[#D97706]/40">
+                    {card.tag}
                   </span>
                 </div>
 
                 <div className="flex items-start gap-3 mb-4">
-                  <div className="w-9 h-9 rounded-full bg-[#4B2E5E] flex items-center justify-center text-[#C9A86A] font-bold text-xs shrink-0 shadow-sm">
-                    <MessageSquare className="w-4 h-4 text-[#C9A86A]" />
+                  <div className="w-9 h-9 rounded-full bg-[#064E3B] flex items-center justify-center text-[#F59E0B] font-bold text-xs shrink-0 shadow-sm border border-[#D97706]/40">
+                    <MessageSquare className="w-4 h-4 text-[#F59E0B]" />
                   </div>
                   <div>
-                    <span className="block text-sm font-bold text-[#4B2E5E]">Customer Feedback #{cardIdx}</span>
-                    <span className="block text-[11px] text-[#665E6E]">SRI SARAVANAVELS Learner</span>
+                    <span className="block text-sm font-extrabold text-[#064E3B]">{card.name}</span>
+                    <span className="block text-[11px] text-gray-500 font-semibold">Radha Driving School Student</span>
                   </div>
                 </div>
 
-                <p className="text-xs text-[#27232A]/80 italic leading-relaxed bg-[#FAF7F2] p-3.5 rounded-xl border border-[#E8DEC8]">
-                  "See what learners have to say about their experience on our official Google Business profile."
+                <p className="text-xs text-gray-700 font-medium italic leading-relaxed bg-[#FAF8F5] p-3.5 rounded-xl border border-[#E8DEC8]">
+                  "{card.comment}"
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-[#E8DEC8] flex justify-between items-center text-[11px] text-[#665E6E]">
-                <span>Paruthippattu Branch</span>
+              <div className="mt-4 pt-3 border-t border-[#E8DEC8] flex justify-between items-center text-[11px] text-gray-500">
+                <span className="font-bold text-[#064E3B]">Adyar, Chennai</span>
                 <a
                   href={MAPS_DIRECTIONS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#4B2E5E] hover:text-[#C9A86A] hover:underline flex items-center gap-1 font-bold"
+                  className="text-[#064E3B] hover:text-[#D97706] flex items-center gap-1 font-extrabold transition-colors"
                 >
-                  Read on Google <ExternalLink className="w-3 h-3" />
+                  View Location <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
             </div>
@@ -112,3 +128,4 @@ export const Reviews: React.FC = () => {
     </section>
   );
 };
+

@@ -5,30 +5,37 @@ import { ScrollReveal } from './ScrollReveal';
 
 export const GALLERY_IMAGES: LightboxImage[] = [
   {
-    src: '/imgs/img1.avif',
-    alt: 'SRI SARAVANAVELS DRIVING SCHOOL Training Vehicle',
-    title: 'Primary Training Vehicle',
-    caption: 'SRI SARAVANAVELS DRIVING SCHOOL dual-control vehicle equipped for safe motor training in Paruthippattu, Avadi.'
+    src: '/images/h/img1.png',
+    alt: 'State Level Honor Award Presentation Ceremony',
+    title: 'State Honor Presentation Ceremony',
+    caption: 'Radha Driving School founder receiving State Level Honor Plaque for excellence in motor training.'
   },
   {
-    src: '/imgs/img2.jpeg',
-    alt: 'SRI SARAVANAVELS DRIVING SCHOOL Fleet & Facility',
-    title: 'School Fleet & Premises',
-    caption: 'Well-maintained training vehicles and facilities for beginner and refresher driver classes.'
+    src: '/images/h/img2.png',
+    alt: 'Award Felicitation and Dignitary Recognition',
+    title: 'Award Felicitation & Dignitary Honor',
+    caption: 'Felicitation ceremony celebrating Radha Driving School achievements with dignitaries and family.'
   },
   {
-    src: '/imgs/img3.jpeg',
-    alt: 'Practical Road Training Guidance',
-    title: 'Practical Road Instruction',
-    caption: 'Hands-on practical road training under patient, expert supervision on Avadi roads.'
+    src: '/images/h/img3.png',
+    alt: 'State Excellence Honor Plaque and Medal',
+    title: 'State Excellence Honor Plaque & Medal',
+    caption: 'Official State Level Honor Plaque and Medal awarded to Radha Driving School in Adyar, Chennai.'
   },
   {
-    src: '/imgs/img4.jpeg',
-    alt: 'Learner Practice & Safety Session',
-    title: 'Learner Confidence Session',
-    caption: 'Dedicated training sessions helping male and female learners build lifelong driving confidence.'
+    src: '/images/h/img4.png',
+    alt: 'Best Driving School Tamil Nadu 2020 Award Trophy',
+    title: 'Best Driving School Tamil Nadu 2020',
+    caption: 'Awarded Best Driving School in Tamil Nadu for high safety standards, student satisfaction, and excellence in motor training.'
+  },
+  {
+    src: '/images/h/img5.png',
+    alt: 'Star Excellence Driving Trophy',
+    title: 'Star Excellence Driving Trophy',
+    caption: 'Star Excellence Trophy awarded for outstanding student feedback, patience, and professional instruction.'
   }
 ];
+
 
 export const About: React.FC = () => {
   const [activeSlotIdx, setActiveSlotIdx] = useState(0);
@@ -53,48 +60,48 @@ export const About: React.FC = () => {
   const activeImg = GALLERY_IMAGES[activeSlotIdx];
 
   return (
-    <section id="about" className="py-20 lg:py-28 bg-[#FAF7F2] bg-celestial-pattern relative">
+    <section id="about" className="py-20 lg:py-28 bg-[#FAF8F5] bg-radha-pattern relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Column: 4 Images in 1 Single Showcase Area Slot */}
+          {/* Left Column: Image Showcase Slot */}
           <div className="lg:col-span-6 relative">
             <ScrollReveal delay={100}>
               <div className="relative mx-auto max-w-lg lg:max-w-none">
                 
                 {/* Frame Glow Effect */}
-                <div className="absolute -inset-2 bg-gradient-to-r from-[#C9A86A]/30 to-[#72548C]/25 rounded-3xl blur-xl pointer-events-none" />
+                <div className="absolute -inset-2 bg-gradient-to-r from-[#D97706]/30 to-[#047857]/25 rounded-3xl blur-xl pointer-events-none" />
 
-                {/* Single Showcase Area Container */}
-                <div className="relative bg-white border-2 border-[#C9A86A]/70 rounded-3xl p-4 sm:p-5 shadow-2xl overflow-hidden group">
+                {/* Showcase Area Container */}
+                <div className="relative bg-white border-2 border-[#D97706]/60 rounded-3xl p-4 sm:p-5 shadow-card overflow-hidden group">
                   
-                  {/* Top Bar inside Showcase Area */}
+                  {/* Top Bar inside Showcase */}
                   <div className="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-[#E8DEC8]">
                     <div className="flex items-center gap-2">
-                      <span className="bg-[#4B2E5E] text-[#FAF7F2] border border-[#C9A86A]/60 text-[11px] sm:text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
-                        <Camera className="w-3.5 h-3.5 text-[#C9A86A]" />
-                        GALLERY SHOWCASE
+                      <span className="bg-[#064E3B] text-white border border-[#D97706]/60 text-[11px] sm:text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+                        <Camera className="w-3.5 h-3.5 text-[#F59E0B]" />
+                        FACILITY & LESSONS
                       </span>
-                      <span className="bg-[#F3EFE7] text-[#4B2E5E] border border-[#C9A86A]/40 text-xs font-mono font-bold px-2.5 py-0.5 rounded-full">
-                        {activeSlotIdx + 1} / 4
+                      <span className="bg-[#F4EFE6] text-[#064E3B] border border-[#D97706]/40 text-xs font-mono font-bold px-2.5 py-0.5 rounded-full">
+                        {activeSlotIdx + 1} / {GALLERY_IMAGES.length}
                       </span>
                     </div>
 
                     <button
                       onClick={() => handleOpenLightbox(activeSlotIdx)}
-                      className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[#4B2E5E] bg-[#F3EFE7] hover:bg-[#C9A86A] hover:text-[#27232A] px-3 py-1 rounded-full border border-[#C9A86A]/40 transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[#064E3B] bg-[#F4EFE6] hover:bg-[#D97706] hover:text-white px-3 py-1 rounded-full border border-[#D97706]/40 transition-colors cursor-pointer"
                       aria-label="Open Fullscreen Lightbox"
                     >
-                      <Maximize2 className="w-3 h-3 text-[#C9A86A]" />
+                      <Maximize2 className="w-3 h-3 text-[#D97706]" />
                       <span>Fullscreen</span>
                     </button>
                   </div>
 
-                  {/* Main Display Image inside Single Area */}
+                  {/* Main Display Image */}
                   <div
                     onClick={() => handleOpenLightbox(activeSlotIdx)}
-                    className="relative w-full h-[260px] sm:h-[340px] rounded-2xl overflow-hidden cursor-pointer border border-[#E8DEC8] bg-[#4B2E5E]"
+                    className="relative w-full h-[260px] sm:h-[340px] rounded-2xl overflow-hidden cursor-pointer border border-[#E8DEC8] bg-[#022C22]"
                     role="button"
                     tabIndex={0}
                     onKeyDown={(e) => {
@@ -115,48 +122,42 @@ export const About: React.FC = () => {
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none" />
 
-                    {/* Previous Arrow Button */}
+                    {/* Previous Button */}
                     <button
                       onClick={handlePrev}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/60 hover:bg-[#4B2E5E] text-white border border-[#C9A86A]/60 shadow-lg backdrop-blur-md transition-all duration-200 active:scale-90 z-10"
+                      className="absolute left-2 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/60 hover:bg-[#064E3B] text-white border border-[#D97706]/60 shadow-lg backdrop-blur-md transition-all duration-200 active:scale-90 z-10"
                       aria-label="Previous Image"
                     >
                       <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
                     </button>
 
-                    {/* Next Arrow Button */}
+                    {/* Next Button */}
                     <button
                       onClick={handleNext}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/60 hover:bg-[#4B2E5E] text-white border border-[#C9A86A]/60 shadow-lg backdrop-blur-md transition-all duration-200 active:scale-90 z-10"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/60 hover:bg-[#064E3B] text-white border border-[#D97706]/60 shadow-lg backdrop-blur-md transition-all duration-200 active:scale-90 z-10"
                       aria-label="Next Image"
                     >
                       <ChevronRight className="w-5 h-5 stroke-[2.5]" />
                     </button>
 
-                    {/* Expand Badge Prompt */}
-                    <div className="absolute top-3 right-3 bg-black/60 text-white px-2.5 py-1 rounded-full text-[10px] font-bold backdrop-blur-md flex items-center gap-1 group-hover:bg-[#C9A86A] group-hover:text-[#27232A] transition-colors">
-                      <Maximize2 className="w-3 h-3" />
-                      <span>Click to Expand</span>
-                    </div>
-
-                    {/* Image Title inside slot */}
+                    {/* Image Title */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 text-white pointer-events-none">
-                      <span className="block text-xs font-extrabold text-[#E7D4A8]">
+                      <span className="block text-xs font-extrabold text-[#F59E0B]">
                         {activeImg.title}
                       </span>
                     </div>
                   </div>
 
-                  {/* 4 Clean Thumbnail Selectors in the SAME SINGLE AREA */}
+                  {/* Thumbnails */}
                   <div className="mt-3 pt-3 border-t border-[#E8DEC8]">
-                    <div className="grid grid-cols-4 gap-2.5 w-full">
+                    <div className="grid grid-cols-5 gap-2 w-full">
                       {GALLERY_IMAGES.map((img, idx) => (
                         <button
                           key={idx}
                           onClick={() => setActiveSlotIdx(idx)}
-                          className={`relative rounded-xl overflow-hidden border-2 transition-all duration-200 h-16 sm:h-20 w-full cursor-pointer ${
+                          className={`relative rounded-xl overflow-hidden border-2 transition-all duration-200 h-14 sm:h-18 w-full cursor-pointer ${
                             activeSlotIdx === idx
-                              ? 'border-[#C9A86A] ring-2 ring-[#C9A86A]/40 scale-105 shadow-glow-gold'
+                              ? 'border-[#D97706] ring-2 ring-[#D97706]/40 scale-105 shadow-glow-gold'
                               : 'border-[#E8DEC8] opacity-70 hover:opacity-100'
                           }`}
                           aria-label={`View Image ${idx + 1}`}
@@ -173,15 +174,16 @@ export const About: React.FC = () => {
 
                 </div>
 
+
                 {/* Floating Experience Badge */}
-                <div className="absolute -bottom-5 -right-3 sm:bottom-4 sm:-right-4 bg-white border-2 border-[#C9A86A] p-3 sm:p-4 rounded-2xl shadow-glow-gold backdrop-blur-md animate-celestial z-20 pointer-events-none">
+                <div className="absolute -bottom-5 -right-3 sm:bottom-4 sm:-right-4 bg-white border-2 border-[#D97706] p-3 sm:p-4 rounded-2xl shadow-glow-gold backdrop-blur-md z-20 pointer-events-none">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-[#4B2E5E] text-[#C9A86A] font-black text-lg flex items-center justify-center shadow-sm">
-                      10+
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#064E3B] to-[#047857] text-[#F59E0B] font-black text-lg flex items-center justify-center shadow-sm">
+                      28+
                     </div>
                     <div>
-                      <span className="block text-xs font-bold text-[#4B2E5E] uppercase tracking-wider">Since 2013</span>
-                      <span className="block text-[10px] text-[#665E6E]">Paruthippattu, Avadi</span>
+                      <span className="block text-xs font-extrabold text-[#064E3B] uppercase tracking-wider">Est. 1998</span>
+                      <span className="block text-[10px] text-gray-500">Near Adyar Signal, Chennai</span>
                     </div>
                   </div>
                 </div>
@@ -193,39 +195,38 @@ export const About: React.FC = () => {
           {/* Right Column: Detailed Narrative */}
           <div className="lg:col-span-6 space-y-6">
             
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F3EFE7] border border-[#C9A86A]/50 text-[#4B2E5E] text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-[#C9A86A]" />
-              <span>ABOUT SRI SARAVANAVELS DRIVING SCHOOL</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F4EFE6] border border-[#D97706]/50 text-[#064E3B] text-xs font-extrabold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
+              <span>ABOUT RADHA DRIVING SCHOOL</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#4B2E5E] tracking-tight leading-tight">
-              A Trusted Driving School in{' '}
-              <span className="gradient-text-gold">Paruthippattu</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#064E3B] tracking-tight leading-tight">
+              About <span className="gradient-text-gold">Radha Driving School</span>
             </h2>
 
-            <p className="text-base sm:text-lg text-[#27232A]/85 leading-relaxed font-medium">
-              <strong>SRI SARAVANAVELS DRIVING SCHOOL</strong> (ஶ்ரீ சரவணவேல்ஸ் டிரைவிங் ஸ்கூல்) in Paruthippattu, Chennai is a well-established motor training school providing professional driving instruction with personalized attention. Established in 2013, the school focuses on helping learners develop the knowledge, practical skills and confidence required to drive safely.
+            <p className="text-base sm:text-lg text-[#111827]/85 leading-relaxed font-medium">
+              Radha Driving School in Adyar, Chennai is a well-established motor training school providing professional driving instruction with personalized attention, practical guidance and a strong focus on safe and confident driving. Established in 1998, the school has been serving learners for over 28 years.
             </p>
 
-            <p className="text-base text-[#665E6E] leading-relaxed">
-              Whether you are a first-time learner or looking to refresh your driving skills, the training approach is designed to support learners at different experience levels while emphasizing practical driving and road safety.
+            <p className="text-base text-gray-600 leading-relaxed">
+              The school focuses on practical vehicle handling, road awareness, driving safety and personalized instruction tailored for beginner drivers as well as those looking for refresher training.
             </p>
 
             {/* Key Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-2">
               <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-[#E8DEC8] shadow-sm">
-                <CheckCircle className="w-5 h-5 text-[#C9A86A] shrink-0 mt-0.5" />
+                <CheckCircle className="w-5 h-5 text-[#D97706] shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-sm font-bold text-[#4B2E5E]">Personalized Instruction</span>
-                  <span className="block text-xs text-[#665E6E]">Paced according to learner comfort</span>
+                  <span className="block text-sm font-extrabold text-[#064E3B]">Personalized Instruction</span>
+                  <span className="block text-xs text-gray-500">Patient guidance paced to your speed</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-[#E8DEC8] shadow-sm">
-                <UserCheck className="w-5 h-5 text-[#C9A86A] shrink-0 mt-0.5" />
+                <UserCheck className="w-5 h-5 text-[#D97706] shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-sm font-bold text-[#4B2E5E]">Women Learner Support</span>
-                  <span className="block text-xs text-[#665E6E]">Encouraging & patient guidance</span>
+                  <span className="block text-sm font-extrabold text-[#064E3B]">Lady Instructor Available</span>
+                  <span className="block text-xs text-gray-500">Dedicated support for women learners</span>
                 </div>
               </div>
             </div>
@@ -234,15 +235,15 @@ export const About: React.FC = () => {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <a
                 href="#services"
-                className="inline-flex items-center gap-2 bg-[#4B2E5E] hover:bg-[#674080] text-[#FAF7F2] font-bold text-sm px-6 py-3.5 rounded-xl shadow-glow-purple transition-all"
+                className="inline-flex items-center gap-2 bg-[#064E3B] hover:bg-[#047857] text-white font-extrabold text-sm px-6 py-3.5 rounded-xl shadow-glow-emerald transition-all"
               >
-                <span>Explore Our Training</span>
-                <ArrowRight className="w-4 h-4 text-[#C9A86A]" />
+                <span>Explore Services</span>
+                <ArrowRight className="w-4 h-4 text-[#F59E0B]" />
               </a>
 
-              <div className="inline-flex items-center gap-2 text-xs text-[#4B2E5E] font-medium bg-[#F3EFE7] px-4 py-3 rounded-xl border border-[#E8DEC8]">
-                <MapPin className="w-4 h-4 text-[#C9A86A]" />
-                <span>No 3, PH Road, Iyyankulam, Paruthipattu, Avadi, Chennai 71</span>
+              <div className="inline-flex items-center gap-2 text-xs text-[#064E3B] font-bold bg-[#F4EFE6] px-4 py-3 rounded-xl border border-[#E8DEC8]">
+                <MapPin className="w-4 h-4 text-[#D97706]" />
+                <span>No 114/1, Near Adyar Signal, L B Road, Adyar, Chennai-600020</span>
               </div>
             </div>
 
@@ -263,3 +264,4 @@ export const About: React.FC = () => {
     </section>
   );
 };
+

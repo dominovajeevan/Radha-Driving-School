@@ -7,53 +7,53 @@ export const LearningProcess: React.FC = () => {
     {
       number: "01",
       title: "Understand",
-      description: "Learn the fundamentals of vehicle controls and road safety.",
+      description: "Learn the fundamentals of vehicle controls, dashboard instruments, and road safety rules.",
       icon: BookOpen
     },
     {
       number: "02",
       title: "Practice",
-      description: "Build practical skills with guided training.",
+      description: "Build hands-on practical skills with guided 1-on-1 instruction.",
       icon: Key
     },
     {
       number: "03",
       title: "Improve",
-      description: "Develop confidence through repeated practical driving.",
+      description: "Develop real-world driving confidence through repeated practical road driving.",
       icon: TrendingUp
     },
     {
       number: "04",
       title: "Drive Confidently",
-      description: "Apply safe driving habits and become more comfortable on the road.",
+      description: "Apply safe defensive driving habits and drive independently with total peace of mind.",
       icon: CheckCheck
     }
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#F3EFE7] border-t border-[#E8DEC8] relative">
+    <section className="py-20 lg:py-28 bg-[#F4EFE6] border-t border-[#E8DEC8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#4B2E5E] bg-[#FAF7F2] px-3 py-1 rounded-full border border-[#C9A86A]/40 shadow-sm">
-              STEP-BY-STEP METHODOLOGY
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#064E3B] bg-white px-4 py-1.5 rounded-full border border-[#D97706]/40 shadow-sm inline-block">
+              METHODOLOGY
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#4B2E5E] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#064E3B] tracking-tight">
               Safety & <span className="gradient-text-gold">Learning Process</span>
             </h2>
-            <p className="text-[#665E6E] text-base sm:text-lg">
+            <p className="text-gray-600 text-base sm:text-lg font-medium">
               Structured road training designed to build lifelong driving confidence.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* 4-Step Timeline Container */}
+        {/* 4-Step Timeline */}
         <div className="relative">
           
-          {/* Horizontal Connecting Line (Desktop) */}
-          <div className="hidden lg:block absolute top-1/2 left-12 right-12 h-0.5 bg-gradient-to-r from-[#C9A86A]/30 via-[#4B2E5E] to-[#C9A86A]/30 -translate-y-6 z-0" />
+          {/* Horizontal Line (Desktop) */}
+          <div className="hidden lg:block absolute top-1/2 left-12 right-12 h-0.5 bg-gradient-to-r from-[#D97706]/30 via-[#064E3B] to-[#D97706]/30 -translate-y-6 z-0" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
             {steps.map((step, idx) => {
@@ -61,23 +61,23 @@ export const LearningProcess: React.FC = () => {
               return (
                 <ScrollReveal key={idx} delay={idx * 100}>
                   <div
-                    className="bg-white border border-[#E8DEC8] hover:border-[#C9A86A] rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-celestial-card group text-center flex flex-col items-center h-full"
+                    className="bg-white border-2 border-[#E8DEC8] hover:border-[#D97706] rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-card group text-center flex flex-col items-center h-full"
                   >
                     {/* Step Badge Icon */}
                     <div className="relative mb-6">
-                      <div className="w-16 h-16 rounded-2xl bg-[#4B2E5E] text-[#C9A86A] font-extrabold flex items-center justify-center shadow-glow-purple group-hover:scale-110 transition-transform">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#064E3B] to-[#047857] text-[#F59E0B] font-extrabold flex items-center justify-center shadow-glow-emerald group-hover:scale-110 transition-transform">
                         <IconComponent className="w-8 h-8 stroke-[2.2]" />
                       </div>
-                      <span className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-[#C9A86A] text-[#27232A] text-[10px] font-black uppercase px-2 py-0.5 rounded-full shadow-sm">
+                      <span className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-[#D97706] text-white text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full shadow-sm">
                         STEP {step.number}
                       </span>
                     </div>
 
                     {/* Step Title & Description */}
-                    <h3 className="text-xl font-bold text-[#4B2E5E] mb-2 group-hover:text-[#72548C] transition-colors">
+                    <h3 className="text-xl font-extrabold text-[#064E3B] mb-2 group-hover:text-[#047857] transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#665E6E] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">
                       {step.description}
                     </p>
                   </div>
@@ -92,3 +92,4 @@ export const LearningProcess: React.FC = () => {
     </section>
   );
 };
+
