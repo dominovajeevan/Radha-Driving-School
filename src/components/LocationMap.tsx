@@ -67,32 +67,20 @@ export const LocationMap: React.FC = () => {
             </a>
           </div>
 
-          {/* Interactive Google Map Iframe Container */}
-          <a
-            href={MAPS_DIRECTIONS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full h-[450px] relative group cursor-pointer"
-          >
+          {/* Interactive Google Map Embedded Directly on Website */}
+          <div className="w-full h-[450px] relative bg-emerald-900/5">
             <iframe
               title="RADHA DRIVING SCHOOL Location Map"
               src={MAPS_EMBED_URL}
               width="100%"
               height="100%"
-              style={{ border: 0, pointerEvents: 'none' }}
+              style={{ border: 0, pointerEvents: 'auto' }}
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="w-full h-full"
             />
-            {/* Click overlay prompt */}
-            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors flex items-center justify-center pointer-events-none">
-              <div className="bg-[#064E3B] text-white font-extrabold text-sm px-6 py-3 rounded-xl shadow-glow-emerald border border-[#D97706]/50 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#F59E0B]" />
-                <span>Click Map to Open Directions</span>
-              </div>
-            </div>
-          </a>
+          </div>
 
           {/* Bottom Bar overlay */}
           <div className="bg-[#FAF8F5] p-4 border-t border-[#E8DEC8] flex flex-wrap items-center justify-between gap-4 text-xs text-gray-600">
