@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Calendar, Star, MessageSquareQuote, Award, CheckCircle2, XCircle } from 'lucide-react';
 import { getBusinessStatus, type BusinessStatus, RATING_VALUE, REVIEWS_COUNT, YEARS_EXPERIENCE, ESTABLISHED_YEAR } from '../utils/businessStatus';
 import { ScrollReveal } from './ScrollReveal';
+import { Tilt3D } from './Tilt3D';
 
 export const HeroStats: React.FC = () => {
   const [status, setStatus] = useState<BusinessStatus>(getBusinessStatus());
@@ -51,46 +52,48 @@ export const HeroStats: React.FC = () => {
           const Icon = stat.icon;
           return (
             <ScrollReveal key={idx} delay={idx * 75}>
-              <div
-                className={`relative overflow-hidden rounded-2xl p-4 sm:p-6 transition-all duration-300 transform hover:-translate-y-1 ${
-                  stat.highlight
-                    ? 'bg-gradient-to-br from-[#064E3B] to-[#022C22] text-white border-2 border-[#D97706] shadow-glow-emerald'
-                    : 'bg-white border border-[#E8DEC8] hover:border-[#D97706]/60 shadow-card'
-                }`}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <div className={`p-2.5 rounded-xl ${stat.highlight ? 'bg-[#D97706]/20 text-[#F59E0B]' : 'bg-[#F4EFE6] text-[#064E3B]'}`}>
-                    <Icon className="w-5 h-5" />
+              <Tilt3D maxTilt={6} scale={1.03}>
+                <div
+                  className={`relative overflow-hidden rounded-2xl p-4 sm:p-6 transition-all duration-300 card-3d-glow ${
+                    stat.highlight
+                      ? 'bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#022C22] text-white border-2 border-[#D97706] shadow-glow-emerald'
+                      : 'bg-white border border-[#E8DEC8] hover:border-[#D97706]/60 shadow-card'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-2 translate-z-10">
+                    <div className={`p-2.5 rounded-xl ${stat.highlight ? 'bg-[#D97706]/20 text-[#F59E0B]' : 'bg-[#F4EFE6] text-[#064E3B]'}`}>
+                      <Icon className="w-5 h-5" />
+                    </div>
+
+                    {idx === 0 && (
+                      <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold ${
+                        status.isOpen ? 'bg-emerald-500/15 text-emerald-700 border border-emerald-500/30' : 'bg-amber-500/15 text-amber-800 border border-amber-500/30'
+                      }`}>
+                        {status.isOpen ? <CheckCircle2 className="w-3 h-3 text-emerald-600" /> : <XCircle className="w-3 h-3 text-amber-600" />}
+                        {status.isOpen ? 'Open Now' : 'Closed Now'}
+                      </span>
+                    )}
                   </div>
 
-                  {idx === 0 && (
-                    <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold ${
-                      status.isOpen ? 'bg-emerald-500/15 text-emerald-700 border border-emerald-500/30' : 'bg-amber-500/15 text-amber-800 border border-amber-500/30'
+                  <div className="mt-2 translate-z-20">
+                    <span className={`block text-2xl sm:text-3xl font-extrabold tracking-tight ${
+                      stat.highlight ? 'text-[#F59E0B]' : 'text-[#064E3B]'
                     }`}>
-                      {status.isOpen ? <CheckCircle2 className="w-3 h-3 text-emerald-600" /> : <XCircle className="w-3 h-3 text-amber-600" />}
-                      {status.isOpen ? 'Open Now' : 'Closed Now'}
+                      {stat.value}
                     </span>
-                  )}
+                    <span className={`block text-xs sm:text-sm font-bold mt-0.5 ${
+                      stat.highlight ? 'text-white' : 'text-[#111827]'
+                    }`}>
+                      {stat.label}
+                    </span>
+                    <span className={`block text-[11px] mt-0.5 truncate ${
+                      stat.highlight ? 'text-[#F4EFE6]/90' : 'text-gray-500'
+                    }`}>
+                      {stat.sublabel}
+                    </span>
+                  </div>
                 </div>
-
-                <div className="mt-2">
-                  <span className={`block text-2xl sm:text-3xl font-extrabold tracking-tight ${
-                    stat.highlight ? 'text-[#F59E0B]' : 'text-[#064E3B]'
-                  }`}>
-                    {stat.value}
-                  </span>
-                  <span className={`block text-xs sm:text-sm font-bold mt-0.5 ${
-                    stat.highlight ? 'text-white' : 'text-[#111827]'
-                  }`}>
-                    {stat.label}
-                  </span>
-                  <span className={`block text-[11px] mt-0.5 truncate ${
-                    stat.highlight ? 'text-[#F4EFE6]/90' : 'text-gray-500'
-                  }`}>
-                    {stat.sublabel}
-                  </span>
-                </div>
-              </div>
+              </Tilt3D>
             </ScrollReveal>
           );
         })}

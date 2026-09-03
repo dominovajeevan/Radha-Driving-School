@@ -3,6 +3,7 @@ import { CheckCircle2, MapPin, Sparkles } from 'lucide-react';
 import type { CourseItem } from '../types';
 import { MAPS_DIRECTIONS_URL } from '../utils/businessStatus';
 import { ScrollReveal } from './ScrollReveal';
+import { Tilt3D } from './Tilt3D';
 
 export const Courses: React.FC = () => {
   const courses: CourseItem[] = [
@@ -72,101 +73,103 @@ export const Courses: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* Course Cards Grid */}
+        {/* Course Cards Grid with 3D Tilt */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {courses.map((course, index) => {
             const isFeatured = index === 1; // Highlight middle card
             return (
               <ScrollReveal key={course.id} delay={index * 100} className="flex">
-                <div
-                  className={`relative rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 w-full ${
-                    isFeatured
-                      ? 'bg-gradient-to-br from-[#064E3B] to-[#022C22] text-white border-2 border-[#D97706] shadow-glow-emerald scale-102'
-                      : 'bg-white text-[#111827] border-2 border-[#E8DEC8] hover:border-[#D97706]/60 shadow-card'
-                  }`}
-                >
-                {isFeatured && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D97706] text-white text-[11px] font-extrabold uppercase tracking-wider px-4 py-1 rounded-full shadow-md flex items-center gap-1">
-                    <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
-                    MOST POPULAR COURSE
-                  </div>
-                )}
-
-                <div>
-                  {/* Card Title & Subtitle */}
-                  <div className="mb-6">
-                    <span className={`text-xs font-extrabold uppercase tracking-wider block mb-1 ${
-                      isFeatured ? 'text-[#F59E0B]' : 'text-[#047857]'
-                    }`}>
-                      {course.subtitle}
-                    </span>
-                    <h3 className={`text-2xl font-extrabold mb-2 ${
-                      isFeatured ? 'text-white' : 'text-[#064E3B]'
-                    }`}>
-                      {course.title}
-                    </h3>
-                    <p className={`text-xs italic ${
-                      isFeatured ? 'text-gray-300' : 'text-gray-500'
-                    }`}>
-                      Recommended for: {course.recommendedFor}
-                    </p>
-                  </div>
-
-                  {/* Price Banner */}
-                  <div className={`p-4 rounded-xl mb-6 flex items-center justify-between border ${
-                    isFeatured 
-                      ? 'bg-white/10 border-[#D97706]/40' 
-                      : 'bg-[#F4EFE6] border-[#E8DEC8]'
-                  }`}>
-                    <div>
-                      <span className={`text-[11px] uppercase font-bold block ${
-                        isFeatured ? 'text-gray-300' : 'text-gray-500'
-                      }`}>Training Fee</span>
-                      <span className={`text-xl font-extrabold ${
-                        isFeatured ? 'text-[#F59E0B]' : 'text-[#064E3B]'
-                      }`}>{course.priceLabel}</span>
+                <Tilt3D maxTilt={7} scale={isFeatured ? 1.04 : 1.02} className="w-full flex">
+                  <div
+                    className={`relative rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 w-full card-3d-glow ${
+                      isFeatured
+                        ? 'bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#022C22] text-white border-2 border-[#D97706] shadow-glow-emerald'
+                        : 'bg-white text-[#111827] border-2 border-[#E8DEC8] hover:border-[#D97706]/60 shadow-card'
+                    }`}
+                  >
+                  {isFeatured && (
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D97706] text-white text-[11px] font-extrabold uppercase tracking-wider px-4 py-1 rounded-full shadow-md flex items-center gap-1 translate-z-30 animate-float-3d">
+                      <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
+                      MOST POPULAR COURSE
                     </div>
-                    <span className={`text-[10px] font-extrabold px-2.5 py-1 rounded ${
-                      isFeatured ? 'bg-white/10 text-white' : 'bg-white text-[#064E3B] border border-[#E8DEC8]'
-                    }`}>Adyar Branch</span>
-                  </div>
+                  )}
 
-                  {/* Feature Checklist */}
-                  <div className="space-y-3 mb-8">
-                    <span className={`text-xs font-extrabold uppercase tracking-wider block mb-2 ${
-                      isFeatured ? 'text-[#F59E0B]' : 'text-[#064E3B]'
+                  <div>
+                    {/* Card Title & Subtitle */}
+                    <div className="mb-6 translate-z-10">
+                      <span className={`text-xs font-extrabold uppercase tracking-wider block mb-1 ${
+                        isFeatured ? 'text-[#F59E0B]' : 'text-[#047857]'
+                      }`}>
+                        {course.subtitle}
+                      </span>
+                      <h3 className={`text-2xl font-extrabold mb-2 ${
+                        isFeatured ? 'text-white' : 'text-[#064E3B]'
+                      }`}>
+                        {course.title}
+                      </h3>
+                      <p className={`text-xs italic ${
+                        isFeatured ? 'text-gray-300' : 'text-gray-500'
+                      }`}>
+                        Recommended for: {course.recommendedFor}
+                      </p>
+                    </div>
+
+                    {/* Price Banner */}
+                    <div className={`p-4 rounded-xl mb-6 flex items-center justify-between border translate-z-20 ${
+                      isFeatured 
+                        ? 'bg-white/10 border-[#D97706]/40' 
+                        : 'bg-[#F4EFE6] border-[#E8DEC8]'
                     }`}>
-                      Included Modules:
-                    </span>
-                    {course.features.map((feature, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2.5">
-                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${
-                          isFeatured ? 'text-[#F59E0B]' : 'text-[#D97706]'
-                        }`} />
-                        <span className={`text-xs sm:text-sm font-medium ${
-                          isFeatured ? 'text-white' : 'text-gray-700'
-                        }`}>{feature}</span>
+                      <div>
+                        <span className={`text-[11px] uppercase font-bold block ${
+                          isFeatured ? 'text-gray-300' : 'text-gray-500'
+                        }`}>Training Fee</span>
+                        <span className={`text-xl font-extrabold ${
+                          isFeatured ? 'text-[#F59E0B]' : 'text-[#064E3B]'
+                        }`}>{course.priceLabel}</span>
                       </div>
-                    ))}
+                      <span className={`text-[10px] font-extrabold px-2.5 py-1 rounded ${
+                        isFeatured ? 'bg-white/10 text-white' : 'bg-white text-[#064E3B] border border-[#E8DEC8]'
+                      }`}>Adyar Branch</span>
+                    </div>
+
+                    {/* Feature Checklist */}
+                    <div className="space-y-3 mb-8">
+                      <span className={`text-xs font-extrabold uppercase tracking-wider block mb-2 ${
+                        isFeatured ? 'text-[#F59E0B]' : 'text-[#064E3B]'
+                      }`}>
+                        Included Modules:
+                      </span>
+                      {course.features.map((feature, fIdx) => (
+                        <div key={fIdx} className="flex items-start gap-2.5">
+                          <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${
+                            isFeatured ? 'text-[#F59E0B]' : 'text-[#D97706]'
+                          }`} />
+                          <span className={`text-xs sm:text-sm font-medium ${
+                            isFeatured ? 'text-white' : 'text-gray-700'
+                          }`}>{feature}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
+
+                  {/* CTA Button */}
+                  <a
+                    href={MAPS_DIRECTIONS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full py-3.5 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 btn-3d shine-effect ${
+                      isFeatured
+                        ? 'bg-gradient-to-r from-[#D97706] via-[#F59E0B] to-[#B45309] hover:from-[#B45309] hover:to-[#92400E] text-white shadow-glow-gold'
+                        : 'bg-[#064E3B] hover:bg-[#047857] text-white shadow-sm'
+                    }`}
+                  >
+                    <MapPin className="w-4 h-4 text-[#F59E0B]" />
+                    <span>Get Directions to School</span>
+                  </a>
+
                 </div>
-
-                {/* CTA Button */}
-                <a
-                  href={MAPS_DIRECTIONS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`w-full py-3.5 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 transition-all ${
-                    isFeatured
-                      ? 'bg-gradient-to-r from-[#D97706] to-[#B45309] hover:from-[#B45309] hover:to-[#92400E] text-white shadow-glow-gold'
-                      : 'bg-[#064E3B] hover:bg-[#047857] text-white shadow-sm'
-                  }`}
-                >
-                  <MapPin className="w-4 h-4" />
-                  <span>Get Directions to School</span>
-                </a>
-
-              </div>
+              </Tilt3D>
             </ScrollReveal>
           );
         })}

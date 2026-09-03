@@ -1,6 +1,7 @@
 import React from 'react';
 import { UserCheck, ShieldCheck, HeartHandshake, Award, Bike, FileCheck } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
+import { Tilt3D } from './Tilt3D';
 
 export const WhyChooseUs: React.FC = () => {
   const features = [
@@ -61,33 +62,35 @@ export const WhyChooseUs: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* 6 Feature Cards Grid */}
+        {/* 6 Feature Cards Grid with 3D Tilt */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((item, idx) => {
             const IconComponent = item.icon;
             return (
               <ScrollReveal key={idx} delay={idx * 75} className="flex">
-                <div
-                  className="bg-white hover:bg-[#FAF8F5] border-2 border-[#E8DEC8] hover:border-[#D97706] rounded-2xl p-6 sm:p-8 transition-all duration-300 shadow-card flex flex-col justify-between group w-full"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#064E3B] to-[#047857] border border-[#D97706]/40 flex items-center justify-center text-[#F59E0B] group-hover:scale-110 transition-transform shadow-sm">
-                        <IconComponent className="w-6 h-6 text-[#F59E0B]" />
+                <Tilt3D maxTilt={7} scale={1.03} className="w-full flex">
+                  <div
+                    className="bg-white hover:bg-[#FAF8F5] border-2 border-[#E8DEC8] hover:border-[#D97706] rounded-2xl p-6 sm:p-8 transition-all duration-300 card-3d-glow flex flex-col justify-between group w-full"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-4 translate-z-10">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#064E3B] to-[#047857] border border-[#D97706]/40 flex items-center justify-center text-[#F59E0B] group-hover:scale-110 transition-transform shadow-sm">
+                          <IconComponent className="w-6 h-6 text-[#F59E0B]" />
+                        </div>
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#064E3B] bg-[#F4EFE6] border border-[#E8DEC8] px-2.5 py-1 rounded-md translate-z-20">
+                          {item.badge}
+                        </span>
                       </div>
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#064E3B] bg-[#F4EFE6] border border-[#E8DEC8] px-2.5 py-1 rounded-md">
-                        {item.badge}
-                      </span>
-                    </div>
 
-                    <h3 className="text-xl font-extrabold text-[#064E3B] mb-2 group-hover:text-[#047857] transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">
-                      {item.description}
-                    </p>
+                      <h3 className="text-xl font-extrabold text-[#064E3B] mb-2 group-hover:text-[#047857] transition-colors translate-z-10">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Tilt3D>
               </ScrollReveal>
             );
           })}

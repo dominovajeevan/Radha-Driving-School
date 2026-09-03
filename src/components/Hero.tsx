@@ -27,16 +27,16 @@ export const Hero: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-3xl">
           
-          {/* Location Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-[#D97706]/60 text-[#F59E0B] text-xs font-extrabold uppercase tracking-wider mb-6 shadow-glow-gold">
-            <Sparkles className="w-4 h-4 text-[#F59E0B]" />
+          {/* Location Badge with 3D Floating Depth */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-[#D97706]/70 text-[#F59E0B] text-xs font-extrabold uppercase tracking-wider mb-6 shadow-glow-gold animate-float-3d">
+            <Sparkles className="w-4 h-4 text-[#F59E0B] animate-pulse" />
             <span>ESTABLISHED 1998 • ADYAR, CHENNAI</span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6 drop-shadow-sm">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6 drop-shadow-md">
             Drive with Skill.{' '}
-            <span className="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-[#F59E0B] via-[#D97706] to-[#B45309]">
+            <span className="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-[#F59E0B] via-[#FBBF24] to-[#D97706]">
               Drive with Confidence.
             </span>
           </h1>
@@ -46,16 +46,16 @@ export const Hero: React.FC = () => {
             Professional motor training in Adyar with personalized instruction, practical guidance and a strong focus on safe, confident driving.
           </p>
 
-          {/* Action CTAs */}
+          {/* Action CTAs with 3D Buttons & Shine Effects */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-10">
             
             {/* Primary Button */}
             <a
               href="#services"
-              className="group relative overflow-hidden bg-gradient-to-r from-[#D97706] to-[#B45309] hover:from-[#B45309] hover:to-[#92400E] text-white font-extrabold text-base px-7 py-4 rounded-xl shadow-glow-gold transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2.5"
+              className="group relative overflow-hidden bg-gradient-to-r from-[#D97706] via-[#F59E0B] to-[#B45309] hover:from-[#B45309] hover:to-[#92400E] text-white font-extrabold text-base px-7 py-4 rounded-xl shadow-glow-gold btn-3d shine-effect flex items-center justify-center gap-2.5"
             >
               <span>Explore Training</span>
-              <ArrowDown className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
+              <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
             </a>
 
             {/* Secondary Button */}
@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
               href={MAPS_DIRECTIONS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border-2 border-[#D97706]/70 font-bold text-base px-7 py-4 rounded-xl transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2.5 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border-2 border-[#D97706]/70 font-bold text-base px-7 py-4 rounded-xl btn-3d transition-all duration-200"
             >
               <MapPin className="w-5 h-5 text-[#F59E0B]" />
               <span>Get Directions</span>
@@ -72,7 +72,7 @@ export const Hero: React.FC = () => {
             {/* Phone CTA */}
             <a
               href={TEL_LINK}
-              className="inline-flex items-center justify-center gap-2.5 bg-[#064E3B]/90 hover:bg-[#064E3B] text-white font-bold text-base px-6 py-4 rounded-xl border border-[#D97706]/50 shadow-glow-emerald transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#064E3B]/90 hover:bg-[#064E3B] text-white font-bold text-base px-6 py-4 rounded-xl border border-[#D97706]/50 shadow-glow-emerald btn-3d shine-effect transition-all duration-200"
             >
               <Phone className="w-5 h-5 text-[#F59E0B]" />
               <span>Call {DISPLAY_PHONE}</span>
@@ -80,16 +80,16 @@ export const Hero: React.FC = () => {
 
           </div>
 
-          {/* Trust Highlights */}
-          <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-[#FAF8F5]/80 border-t border-[#D97706]/30 pt-6">
-            <div className="flex items-center gap-1.5 text-[#F59E0B] font-semibold">
+          {/* Trust Highlights with Glassmorphic 3D Card Pill */}
+          <div className="inline-flex flex-wrap items-center gap-4 text-xs sm:text-sm text-[#FAF8F5]/90 bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-lg">
+            <div className="flex items-center gap-1.5 text-[#F59E0B] font-extrabold">
               <ShieldCheck className="w-4 h-4 text-[#F59E0B]" />
               <span>28+ Years of Driving Excellence</span>
             </div>
-            <span className="text-[#D97706]/50">•</span>
-            <span>Lady Instructor Available</span>
-            <span className="text-[#D97706]/50">•</span>
-            <span>Near Adyar Signal</span>
+            <span className="text-[#D97706]/70">•</span>
+            <span className="font-bold">Lady Instructor Available</span>
+            <span className="text-[#D97706]/70">•</span>
+            <span className="font-bold">Near Adyar Signal</span>
           </div>
 
         </div>

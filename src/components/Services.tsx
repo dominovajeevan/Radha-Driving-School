@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Car, FileCheck, Monitor, UserCheck, Bike, FileSearch, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
+import { Tilt3D } from './Tilt3D';
 
 interface ServiceItem {
   id: string;
@@ -152,7 +153,7 @@ export const Services: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* 6 Service Cards Grid */}
+        {/* 6 Service Cards Grid with 3D Tilt */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, idx) => {
             const IconComponent = service.icon;
@@ -161,104 +162,106 @@ export const Services: React.FC = () => {
 
             return (
               <ScrollReveal key={service.id} delay={idx * 100} className="flex">
-                <div
-                  className="group relative bg-white hover:bg-[#FAF8F5] border-2 border-[#E8DEC8] hover:border-[#D97706] rounded-2xl overflow-hidden transition-all duration-300 shadow-card flex flex-col justify-between w-full"
-                >
-                  {/* Top Image Banner with Interactive Carousel */}
-                  <div className="relative w-full h-56 overflow-hidden bg-[#022C22]">
-                    <img
-                      key={currentIdx}
-                      src={currentImg}
-                      alt={`${service.altText} photo ${currentIdx + 1}`}
-                      className="w-full h-full object-cover img-hover-zoom transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 pointer-events-none" />
+                <Tilt3D maxTilt={7} scale={1.02} className="w-full flex">
+                  <div
+                    className="group relative bg-white hover:bg-[#FAF8F5] border-2 border-[#E8DEC8] hover:border-[#D97706] rounded-2xl overflow-hidden transition-all duration-300 card-3d-glow flex flex-col justify-between w-full"
+                  >
+                    {/* Top Image Banner with Interactive Carousel */}
+                    <div className="relative w-full h-56 overflow-hidden bg-[#022C22]">
+                      <img
+                        key={currentIdx}
+                        src={currentImg}
+                        alt={`${service.altText} photo ${currentIdx + 1}`}
+                        className="w-full h-full object-cover img-hover-zoom transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 pointer-events-none" />
 
-                    {/* Prev / Next Buttons */}
-                    {service.images.length > 1 && (
-                      <>
-                        <button
-                          onClick={() => handlePrevImage(service.id, service.images.length)}
-                          className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/60 hover:bg-[#064E3B] text-white border border-[#D97706]/60 shadow-md backdrop-blur-md transition-all active:scale-90"
-                          aria-label="Previous photo"
-                        >
-                          <ChevronLeft className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => handleNextImage(service.id, service.images.length)}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/60 hover:bg-[#064E3B] text-white border border-[#D97706]/60 shadow-md backdrop-blur-md transition-all active:scale-90"
-                          aria-label="Next photo"
-                        >
-                          <ChevronRight className="w-4 h-4" />
-                        </button>
-                      </>
-                    )}
+                      {/* Prev / Next Buttons */}
+                      {service.images.length > 1 && (
+                        <>
+                          <button
+                            onClick={() => handlePrevImage(service.id, service.images.length)}
+                            className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/60 hover:bg-[#064E3B] text-white border border-[#D97706]/60 shadow-md backdrop-blur-md transition-all active:scale-90"
+                            aria-label="Previous photo"
+                          >
+                            <ChevronLeft className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={() => handleNextImage(service.id, service.images.length)}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/60 hover:bg-[#064E3B] text-white border border-[#D97706]/60 shadow-md backdrop-blur-md transition-all active:scale-90"
+                            aria-label="Next photo"
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+                        </>
+                      )}
 
-                    {/* Service Number & Photo Indicator */}
-                    <div className="absolute top-3 left-4 flex items-center gap-1.5">
-                      <span className="text-xs font-black tracking-widest text-white bg-[#064E3B]/90 backdrop-blur-md px-3 py-1 rounded-full border border-[#D97706]/50 shadow-sm">
-                        SERVICE {service.number}
-                      </span>
-                      <span className="text-[10px] font-mono font-bold text-white bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/30">
-                        {currentIdx + 1}/{service.images.length}
-                      </span>
-                    </div>
-
-                    {/* Badge */}
-                    <span className="absolute top-3 right-4 text-[11px] font-extrabold uppercase tracking-wider text-white bg-[#D97706] px-2.5 py-1 rounded-md shadow-sm">
-                      {service.badge}
-                    </span>
-                  </div>
-
-                  {/* Thumbnail Row */}
-                  <div className="bg-[#022C22] p-2 border-b border-[#E8DEC8] flex items-center justify-center gap-1.5 overflow-x-auto">
-                    {service.images.map((img, imgIdx) => (
-                      <button
-                        key={imgIdx}
-                        onClick={() => setActiveImageIndices((prev) => ({ ...prev, [service.id]: imgIdx }))}
-                        className={`relative rounded-md overflow-hidden border transition-all h-8 w-10 shrink-0 cursor-pointer ${
-                          currentIdx === imgIdx
-                            ? 'border-[#D97706] ring-2 ring-[#D97706]/60 scale-105'
-                            : 'border-white/30 opacity-60 hover:opacity-100'
-                        }`}
-                        aria-label={`View photo ${imgIdx + 1}`}
-                      >
-                        <img src={img} alt={`Thumbnail ${imgIdx + 1}`} className="w-full h-full object-cover" />
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Card Content */}
-                  <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between">
-                    <div>
-                      {/* Title with Icon */}
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#064E3B] to-[#047857] border border-[#D97706]/50 flex items-center justify-center text-[#F59E0B] shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-sm">
-                          <IconComponent className="w-5 h-5" />
-                        </div>
-                        <h3 className="text-lg font-extrabold text-[#064E3B] group-hover:text-[#047857] transition-colors leading-snug">
-                          {service.title}
-                        </h3>
+                      {/* Service Number & Photo Indicator */}
+                      <div className="absolute top-3 left-4 flex items-center gap-1.5 translate-z-20">
+                        <span className="text-xs font-black tracking-widest text-white bg-[#064E3B]/90 backdrop-blur-md px-3 py-1 rounded-full border border-[#D97706]/50 shadow-sm">
+                          SERVICE {service.number}
+                        </span>
+                        <span className="text-[10px] font-mono font-bold text-white bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/30">
+                          {currentIdx + 1}/{service.images.length}
+                        </span>
                       </div>
 
-                      {/* Description */}
-                      <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                        {service.description}
-                      </p>
+                      {/* Badge */}
+                      <span className="absolute top-3 right-4 text-[11px] font-extrabold uppercase tracking-wider text-white bg-[#D97706] px-2.5 py-1 rounded-md shadow-sm translate-z-20">
+                        {service.badge}
+                      </span>
                     </div>
 
-                    {/* Card Action */}
-                    <a
-                      href="#courses"
-                      className="w-full inline-flex items-center justify-between text-xs font-extrabold uppercase tracking-wider text-[#064E3B] group-hover:text-[#D97706] pt-4 border-t border-[#E8DEC8] transition-colors mt-auto"
-                    >
-                      <span>Explore Module ({service.images.length} Photos)</span>
-                      <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                    </a>
+                    {/* Thumbnail Row */}
+                    <div className="bg-[#022C22] p-2 border-b border-[#E8DEC8] flex items-center justify-center gap-1.5 overflow-x-auto">
+                      {service.images.map((img, imgIdx) => (
+                        <button
+                          key={imgIdx}
+                          onClick={() => setActiveImageIndices((prev) => ({ ...prev, [service.id]: imgIdx }))}
+                          className={`relative rounded-md overflow-hidden border transition-all h-8 w-10 shrink-0 cursor-pointer ${
+                            currentIdx === imgIdx
+                              ? 'border-[#D97706] ring-2 ring-[#D97706]/60 scale-105'
+                              : 'border-white/30 opacity-60 hover:opacity-100'
+                          }`}
+                          aria-label={`View photo ${imgIdx + 1}`}
+                        >
+                          <img src={img} alt={`Thumbnail ${imgIdx + 1}`} className="w-full h-full object-cover" />
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Card Content */}
+                    <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between">
+                      <div>
+                        {/* Title with Icon */}
+                        <div className="flex items-center gap-3 mb-3 translate-z-10">
+                          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#064E3B] to-[#047857] border border-[#D97706]/50 flex items-center justify-center text-[#F59E0B] shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-sm">
+                            <IconComponent className="w-5 h-5" />
+                          </div>
+                          <h3 className="text-lg font-extrabold text-[#064E3B] group-hover:text-[#047857] transition-colors leading-snug">
+                            {service.title}
+                          </h3>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                          {service.description}
+                        </p>
+                      </div>
+
+                      {/* Card Action */}
+                      <a
+                        href="#courses"
+                        className="w-full inline-flex items-center justify-between text-xs font-extrabold uppercase tracking-wider text-[#064E3B] group-hover:text-[#D97706] pt-4 border-t border-[#E8DEC8] transition-colors mt-auto"
+                      >
+                        <span>Explore Module ({service.images.length} Photos)</span>
+                        <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                      </a>
+                    </div>
                   </div>
-                </div>
+                </Tilt3D>
               </ScrollReveal>
             );
           })}
