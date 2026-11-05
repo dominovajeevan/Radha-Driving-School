@@ -77,7 +77,9 @@ export const Services: React.FC = () => {
         "/images/person/img3.jpg",
         "/images/person/img4.jpg",
         "/images/person/img5.jpg",
-        "/images/person/img6.jpg"
+        "/images/person/img6.jpg",
+        "/images/person/img7.jpg",
+        "/images/person/img8.jpg"
       ],
       altText: "In-person one on one driving instructor",
       icon: UserCheck
@@ -271,5 +273,4 @@ export const Services: React.FC = () => {
     </section>
   );
 };
-
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, MapPin, Car } from 'lucide-react';
+import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { MAPS_DIRECTIONS_URL, DISPLAY_PHONE, TEL_LINK } from '../utils/businessStatus';
 
 export const Navbar: React.FC = () => {
@@ -38,9 +38,11 @@ export const Navbar: React.FC = () => {
           {/* Brand Logo & Name */}
           <div className="flex items-center gap-3 group">
             <a href="#hero" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#064E3B] to-[#047857] p-2 flex items-center justify-center shadow-glow-emerald border border-[#D97706]/40 group-hover:scale-105 transition-transform duration-300">
-                <Car className="w-6 h-6 text-[#F59E0B]" />
-              </div>
+              <img
+                src="/logo.png"
+                alt="Radha Driving School logo"
+                className="w-14 h-14 rounded-xl bg-white p-1 object-contain shadow-glow-emerald border border-[#D97706]/40 group-hover:scale-105 transition-transform duration-300"
+              />
               <div>
                 <span className="block text-base sm:text-lg font-extrabold tracking-tight text-[#064E3B] group-hover:text-[#047857] transition-colors uppercase">
                   RADHA DRIVING SCHOOL
@@ -147,4 +149,3 @@ export const Navbar: React.FC = () => {
     </header>
   );
 };
-
