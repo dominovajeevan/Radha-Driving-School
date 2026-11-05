@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Clock, ShieldCheck, ExternalLink, Car } from 'lucide-react';
+import { MapPin, Phone, Clock, ShieldCheck, ExternalLink } from 'lucide-react';
 import { MAPS_DIRECTIONS_URL, DISPLAY_PHONE, TEL_LINK, DISPLAY_WHATSAPP, WHATSAPP_LINK, BUSINESS_NAME_EN, BUSINESS_NAME_TA, FULL_ADDRESS, ESTABLISHED_YEAR } from '../utils/businessStatus';
 
 export const Footer: React.FC = () => {
@@ -24,9 +24,12 @@ export const Footer: React.FC = () => {
           {/* Brand Col */}
           <div className="lg:col-span-4 space-y-4">
             <a href="#hero" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-[#064E3B] border border-[#D97706] p-2 flex items-center justify-center shadow-glow-emerald">
-                <Car className="w-6 h-6 text-[#F59E0B]" />
-              </div>
+              {/* Actual Logo Image */}
+              <img
+                src="/logo.png"
+                alt="Radha Driving School Logo"
+                className="w-16 h-16 object-contain rounded-xl border-2 border-[#D97706] shadow-lg bg-white p-1 group-hover:scale-105 transition-transform duration-200"
+              />
               <div>
                 <span className="block text-base font-extrabold text-white uppercase tracking-wider">{BUSINESS_NAME_EN}</span>
                 <span className="block text-xs text-[#F59E0B] font-bold">{BUSINESS_NAME_TA}</span>
