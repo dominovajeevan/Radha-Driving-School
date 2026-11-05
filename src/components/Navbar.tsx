@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, MapPin, ZoomIn } from 'lucide-react';
+import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { MAPS_DIRECTIONS_URL, DISPLAY_PHONE, TEL_LINK, DISPLAY_WHATSAPP, WHATSAPP_LINK } from '../utils/businessStatus';
 
 export const Navbar: React.FC = () => {
@@ -62,9 +62,6 @@ export const Navbar: React.FC = () => {
                   alt="Radha Driving School logo"
                   className="w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-xl bg-white p-1 object-contain shadow-glow-emerald border border-[#D97706]/50 group-hover/logo:scale-105 group-hover/logo:shadow-glow-gold transition-all duration-300"
                 />
-                <span className="absolute -bottom-1 -right-1 bg-[#064E3B] text-[#F59E0B] p-0.5 rounded-full border border-white shadow-xs group-hover/logo:scale-110 transition-transform">
-                  <ZoomIn className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                </span>
               </button>
 
               {/* Properly Aligned Title & Subtitle */}
