@@ -81,7 +81,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, ini
             </div>
 
             <p className="text-xs text-amber-400 font-medium">
-              Note: SRI SARAVANAVELS DRIVING SCHOOL representatives will connect with you during business hours.
+              Note: RADHA DRIVING SCHOOL representatives will connect with you during business hours.
             </p>
 
             <button
@@ -97,13 +97,13 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, ini
             {/* Modal Header */}
             <div className="mb-6">
               <span className="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-1">
-                SRI SARAVANAVELS DRIVING SCHOOL
+                RADHA DRIVING SCHOOL
               </span>
               <h3 className="text-2xl font-extrabold text-white">
                 Course & Admission Enquiry
               </h3>
               <p className="text-xs text-gray-400 mt-1">
-                Paruthippattu, Avadi Branch • Personalized Motor Training
+                Near Adyar Signal, Chennai Branch • Personalized Motor Training
               </p>
             </div>
 

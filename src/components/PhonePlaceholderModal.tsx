@@ -43,7 +43,7 @@ export const PhonePlaceholderModal: React.FC<PhonePlaceholderModalProps> = ({
         </div>
 
         <p className="text-xs text-gray-300 leading-relaxed mb-6">
-          SRI SARAVANAVELS DRIVING SCHOOL in Paruthippattu, Avadi is open Monday to Saturday from 9:00 AM to 8:00 PM. You can also submit an online enquiry or get directions directly.
+          RADHA DRIVING SCHOOL in Adyar, Chennai is open Monday to Saturday from 6:00 AM to 8:00 PM, and Sunday from 9:00 AM to 12:00 PM. You can also submit an online enquiry or get directions directly.
         </p>
 
         <div className="space-y-3">
@@ -65,7 +65,7 @@ export const PhonePlaceholderModal: React.FC<PhonePlaceholderModalProps> = ({
             className="w-full inline-flex items-center justify-center gap-2 bg-brand-card hover:bg-brand-cardHover border border-brand-border text-xs font-bold text-gray-200 py-3 rounded-xl"
           >
             <MapPin className="w-4 h-4 text-amber-400" />
-            <span>Visit Paruthippattu Branch</span>
+            <span>Visit Adyar Branch</span>
           </a>
         </div>
 
