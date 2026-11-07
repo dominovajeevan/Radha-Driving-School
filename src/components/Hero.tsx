@@ -43,7 +43,7 @@ export const Hero: React.FC = () => {
 
           {/* Supporting Copy */}
           <p className="text-base sm:text-lg lg:text-xl text-[#FAF8F5]/90 leading-relaxed mb-8 font-medium max-w-2xl drop-shadow-sm">
-            Professional motor training in Adyar with personalized instruction, practical guidance and a strong focus on safe, confident driving.
+            Professional Motor Training in Adyar, offering personalized driving instruction, hands-on practical guidance, and comprehensive training focused on developing safe, skilled, and confident drivers. Specialized training is available for both Manual and Automatic Transmission Vehicles.
           </p>
 
           {/* Action CTAs with 3D Buttons & Shine Effects */}
