@@ -42,9 +42,23 @@ export const Hero: React.FC = () => {
           </h1>
 
           {/* Supporting Copy */}
-          <p className="text-base sm:text-lg lg:text-xl text-[#FAF8F5]/90 leading-relaxed mb-8 font-medium max-w-2xl drop-shadow-sm">
-            Professional Motor Training in Adyar, offering personalized driving instruction, hands-on practical guidance, and comprehensive training focused on developing safe, skilled, and confident drivers. Specialized training is available for both Manual and Automatic Transmission Vehicles.
-          </p>
+          <div className="text-base sm:text-lg lg:text-xl text-[#FAF8F5]/90 leading-relaxed mb-8 font-medium max-w-2xl drop-shadow-sm space-y-3">
+            <p>
+              Professional Motor Training in Adyar, offering personalized driving instruction, hands-on practical guidance, and comprehensive training focused on developing safe, skilled, and confident drivers.
+            </p>
+            <p>
+              We're providing specialized training for both{' '}
+              <span className="inline-block px-2 py-0.5 rounded-md bg-[#D97706]/25 border border-[#F59E0B]/60 text-[#FCD34D] font-extrabold tracking-wide">
+                Manual
+              </span>
+              {' '}and{' '}
+              <span className="inline-block px-2 py-0.5 rounded-md bg-[#D97706]/25 border border-[#F59E0B]/60 text-[#FCD34D] font-extrabold tracking-wide">
+                Automatic
+              </span>
+              {' '}Transmission Vehicles.
+            </p>
+          </div>
+          
 
           {/* Action CTAs with 3D Buttons & Shine Effects */}
           <div className="flex flex-wrap items-center gap-3.5 mb-10">
